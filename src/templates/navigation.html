@@ -1,0 +1,34 @@
+<header>
+  
+  <div class="hamburger-icon" id="icon">
+    <div class="icon-1" id="a"></div>
+    <div class="icon-2" id="b"></div>
+    <div class="icon-3" id="c"></div>
+    <div class="clear"></div>
+  </div>
+  
+  <nav id="nav">
+    <ul>
+      <li><a class="btn-nav" href="{{ url_for('home_bp.home') }}">Home</a></li>
+      <li><a class="btn-nav" href="{{ url_for('about_bp.about') }}">About</a></li>
+    </ul>
+  </nav>
+  
+</header>
+
+
+<script>
+  var icon = document.getElementById("icon");
+  var icon1 = document.getElementById("a");
+  var icon2 = document.getElementById("b");
+  var icon3 = document.getElementById("c");
+  var nav = document.getElementById('nav');
+
+  icon.addEventListener('click', function() {
+    icon1.classList.toggle('a');
+    icon2.classList.toggle('c');
+    icon3.classList.toggle('b');
+    nav.classList.toggle('show');
+  });
+</script>
+

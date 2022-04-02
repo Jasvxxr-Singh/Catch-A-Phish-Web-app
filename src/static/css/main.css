@@ -27,8 +27,30 @@ html {
 h1 {
   text-align: center;
   font-weight: bold;
-  color: blue;
+  color: white;
 }
+
+/* HEADER */
+#header {
+  color: white;
+  background-color: #7E76A9;
+  text-align: right;
+  align-items: flex-end;
+  height: 65px;
+}
+
+#header button {
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 12%;
+  border: none;
+  background-color: white;
+  color: #7E76A9;
+}
+
+
 
 /* NAVIGATION */
 nav {
@@ -113,8 +135,8 @@ header nav ul li a:hover {
   transition: 1000ms;
 }
 
-
 nav.show {
   width: 15%;
   opacity: 1;
+  box-shadow: 0 0 0 10000px rgba(0,0,0,.25);
 }

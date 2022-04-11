@@ -48,6 +48,12 @@ h1 {
   border: none;
   background-color: white;
   color: #7E76A9;
+  z-index: 0;
+}
+
+#header button:hover {
+  color: #D9D57C;
+  transition: 1000ms;
 }
 
 
@@ -62,7 +68,7 @@ nav {
   background: #7E76A9;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: -1;
   opacity: 0;
   transition-delay: 100ms;
 }
@@ -95,7 +101,7 @@ nav {
   position: absolute;
   height: 60px;
   width: 60px;
-  z-index: 1000;
+  z-index: 2;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background: rgba(255, 255, 255, 0);
@@ -115,14 +121,14 @@ nav {
   }
 }
 
-header nav ul {
+#nav-bar nav ul {
   margin: 0;
   position: absolute;
   top: 10%;
   left: 5%;
 }
 
-header nav ul li a {
+#nav-bar nav ul li a {
   color: white;
   list-style: none;
   font-size: 24px;
@@ -130,7 +136,7 @@ header nav ul li a {
   background-color: #7E76A9;
 }
 
-header nav ul li a:hover {
+#nav-bar nav ul li a:hover {
   color: #D9D57C;
   transition: 1000ms;
 }
@@ -139,4 +145,5 @@ nav.show {
   width: 15%;
   opacity: 1;
   box-shadow: 0 0 0 10000px rgba(0,0,0,.25);
+  z-index: inherit;
 }

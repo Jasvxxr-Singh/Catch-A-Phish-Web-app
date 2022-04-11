@@ -1,5 +1,4 @@
-<header>
-  
+<div id="nav-bar">
   <div class="hamburger-icon" id="icon">
     <div class="icon-1" id="a"></div>
     <div class="icon-2" id="b"></div>
@@ -13,22 +12,7 @@
       <li><a class="btn-nav" href="{{ url_for('about_bp.about') }}">About</a></li>
     </ul>
   </nav>
+
+  <script src="../static/animations/nav_script.js" type="text/javascript"></script> 
   
-</header>
-
-
-<script>
-  var icon = document.getElementById("icon");
-  var icon1 = document.getElementById("a");
-  var icon2 = document.getElementById("b");
-  var icon3 = document.getElementById("c");
-  var nav = document.getElementById('nav');
-
-  icon.addEventListener('click', function() {
-    icon1.classList.toggle('a');
-    icon2.classList.toggle('c');
-    icon3.classList.toggle('b');
-    nav.classList.toggle('show');
-  });
-</script>
-
+</div>

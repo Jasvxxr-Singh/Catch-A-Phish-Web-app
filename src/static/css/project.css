@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+:root {
+    background-color: rgb(29, 26, 26);
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-size: 65%;
+    font-family: 'Arvo', serif;
+
+}
+
+h1{
+    font-size: 5.4rem;
+    color: bisque;
+    margin-bottom: 5rem;
+}
+
+h2{
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+.phish{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+}
+
+.button{
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 30rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(28,26,26);
+    background: linear-gradient(90deg, rgb(18,92,255), rgb(0,102,255) );
+    border-radius: 4px;
+    display: flex;
+}
+
+.rbutton{
+    font-size: 20px;
+    padding: 10px 10px;
+    width: 15rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(28,26,26);
+    background: linear-gradient(90deg, rgb(226, 229, 237), rgb(214, 221, 231) );
+    border-radius: 4px;
+    display: flex;
+    position:absolute; top:0; right:0;
+}
+
+.abutton{
+    font-size: 20px;
+    padding: 10px 10px;
+    width: 15rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(28,26,26);
+    background: linear-gradient(90deg, rgb(226, 229, 237), rgb(214, 221, 231) );
+    border-radius: 4px;
+    display: flex;
+    position:absolute; top:0; right: 160px;
+}

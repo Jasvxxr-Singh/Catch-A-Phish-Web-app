@@ -10,7 +10,7 @@ from functools import wraps
 
 import src.utilities.utilities as utilities
 import src.authentication.services as services
-import src.adapters.repository as repo
+import src.adapters.repo as repo
 
 authentication_blueprint = Blueprint(
     'authentication_bp', __name__, url_prefix='/authentication')

@@ -15,6 +15,7 @@ import src.adapters.repository as repo
 authentication_blueprint = Blueprint(
     'authentication_bp', __name__, url_prefix='/authentication')
 
+
 def register():
     form = RegistrationForm()
     user_name_not_unique = None
@@ -40,6 +41,7 @@ def register():
         handler_url=url_for('authentication_bp.register'),
 
     )
+
 
 @authentication_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -80,8 +82,6 @@ def login():
     )
 
 
-
-
 class RegistrationForm(FlaskForm):
     user_name = StringField('Username', [
         DataRequired(message='Your user name is required'),
@@ -91,12 +91,14 @@ class RegistrationForm(FlaskForm):
         PasswordValid()])
     submit = SubmitField('Register')
 
+
 class LoginForm(FlaskForm):
     user_name = StringField('Username', [
         DataRequired()])
     password = PasswordField('Password', [
         DataRequired()])
     submit = SubmitField('Login')
+
 
 class PasswordValid:
     def __init__(self, message=None):
@@ -114,6 +116,3 @@ class PasswordValid:
             .has().digits()
         if not schema.validate(field.data):
             raise ValidationError(self.message)
-
-
-

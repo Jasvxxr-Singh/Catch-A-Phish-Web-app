@@ -1,5 +1,34 @@
 {% extends 'layout.html' %} {% block content %}
 <main id="main">
-    <p>About page</p>
+    <div id="about-content">
+        <div>
+            <H1 id="about-content-heading">Our Team</H1>
+            <div id="our-team">
+                <p id="about-content-text">{{ content_dict['Our Team'] }}</p>
+                <br>
+                <img src="../../static/images/fish.gif">  
+            </div>
+            <br>
+        </div>
+        
+        <div>
+            <H1 id="about-content-heading">What we're all about</H1>
+            {% for item in content_dict['What we\'re all about'] %}
+                <p id="about-content-text">{{ item }}</p>
+            {% endfor %}
+            <br><br>
+        </div>
+
+        <div>
+            <H1 id="about-content-heading" style="color: #F0E43C;">So, what is phishing?</H1>
+            {% for item in content_dict['So, what is phishing?'] %}
+                <p id="about-content-text">{{ item }}</p>
+                <br>
+            {% endfor %}
+            <br><br><br>
+        </div>
+    </div>
 </main>
 {% endblock %}
+
+

@@ -1,22 +1,5 @@
-{% extends 'layout.html' %}
-{% block content %}
-
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="/static/css/project.css">
-</head>
-<body>
-<div class="phish">
-    <div id="head" class="flex-column flex-center">
-        <h1>Take a quiz</h1>
-        <a href="/game.html" class="button">Start</a>
-        <a href="/score.html" id="scoreboard" class="button">Score board</a>
-    </div>
-</div>
-<div class="top-corner">
-    <a href="login.html" class="rbutton">login/register</a>
-    <a href="login.html" class="abutton">About us</a>
-
-</div>
-</body>
+{% extends 'layout.html' %} {% block content %}
+<main id="main">
+    <a href="{{ url_for('quiz_bp.quiz') }}">Let's play</a>
+</main>
 {% endblock %}

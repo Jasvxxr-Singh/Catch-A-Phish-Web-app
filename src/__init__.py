@@ -15,6 +15,9 @@ def create_app(test_config=None):
         app.register_blueprint(home.home_blueprint)
 
         from .about import about
-        app.register_blueprint(about.about_blueprint) 
+        app.register_blueprint(about.about_blueprint)
+
+        from .quiz import quiz
+        app.register_blueprint(quiz.quiz_blueprint) 
         
     return app

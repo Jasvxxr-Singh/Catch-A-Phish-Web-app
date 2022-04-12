@@ -247,3 +247,24 @@ body #footer div {
   margin-left: 20%;
   margin-right: 20%;
 }
+
+
+/* HOME PAGE */
+#main a {
+  font-size: 100px;
+  border: 1px;
+
+  margin-top: 20%;
+  margin-bottom: 25%;
+  margin-left: 36%;
+  
+
+  display: inline-block;
+  
+  z-index: 0;
+  padding: 5px 15px;
+  border-radius: 12px;
+  border: none;
+  background-color: white;
+  color: #7E76A9;
+}

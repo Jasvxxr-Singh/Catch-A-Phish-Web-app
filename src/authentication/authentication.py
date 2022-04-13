@@ -8,14 +8,13 @@ from password_validator import PasswordValidator
 
 from functools import wraps
 
-import src.utilities.utilities as utilities
 import src.authentication.services as services
 import src.adapters.repo as repo
 
 authentication_blueprint = Blueprint(
     'authentication_bp', __name__, url_prefix='/authentication')
 
-
+@authentication_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     user_name_not_unique = None
@@ -81,16 +80,19 @@ def login():
 
     )
 
+@authentication_blueprint.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home_bp.home'))
 
-class RegistrationForm(FlaskForm):
-    user_name = StringField('Username', [
-        DataRequired(message='Your user name is required'),
-        Length(min=3, message='Your user name is too short')])
-    password = PasswordField('Password', [
-        DataRequired(message='Your password is required'),
-        PasswordValid()])
-    submit = SubmitField('Register')
 
+def login_required(view):
+    @wraps(view)
+    def wrapped_view(**kwargs):
+        if 'user_name' not in session:
+            return redirect(url_for('authentication_bp.login'))
+        return view(**kwargs)
+    return wrapped_view
 
 class LoginForm(FlaskForm):
     user_name = StringField('Username', [
@@ -116,3 +118,12 @@ class PasswordValid:
             .has().digits()
         if not schema.validate(field.data):
             raise ValidationError(self.message)
+
+class RegistrationForm(FlaskForm):
+    user_name = StringField('Username', [
+        DataRequired(message='Your user name is required'),
+        Length(min=3, message='Your user name is too short')])
+    password = PasswordField('Password', [
+        DataRequired(message='Your password is required'),
+        PasswordValid()])
+    submit = SubmitField('Register')

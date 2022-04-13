@@ -18,6 +18,9 @@ def create_app(test_config=None):
         app.register_blueprint(about.about_blueprint)
 
         from .quiz import quiz
-        app.register_blueprint(quiz.quiz_blueprint) 
+        app.register_blueprint(quiz.quiz_blueprint)
+
+        from .authentication import authentication
+        app.register_blueprint(authentication.authentication_blueprint)
         
     return app

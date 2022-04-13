@@ -70,3 +70,16 @@ h2 {
     display: flex;
     position:absolute; top:0; right: 160px;
 }
+
+.btn-top {
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 30rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(255,0,0);
+    background: linear-gradient(90deg, rgb(18,92,255), rgb(0,102,255) );
+    border-radius: 4px;
+    display: flex;
+}

@@ -6,9 +6,11 @@
     <div class="ui text container">
       <h1 class="ui inverted header">Catching a Phish</h1>
       <h2>The game for you.</h2>
-      <div class="ui huge primary button" href="{{ url_for('quiz_bp.quiz') }}">
-        Lets Play <i class="right arrow icon" href="{{ url_for('quiz_bp.quiz') }}"></i>
-      </div>
+
+      <a class="item" href="{{ url_for('quiz_bp.quiz') }}">
+        <div class="ui huge primary button">Lets play<i class="right arrow icon"></i></div>
+      </a>
+
     </div>
   </div>
 
@@ -26,10 +28,7 @@
 
         </div>
         <div class="six wide right floated column">
-          <iframe
-                  src="https://giphy.com/embed/26tk0aLx4Aj4lxx3W" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen>
-
-          </iframe>
+          <iframe src="https://giphy.com/embed/26tk0aLx4Aj4lxx3W" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
       </div>
     </div>
@@ -44,10 +43,7 @@
         </div>
         <div class="column">
           <h3>Bruce Schneier</h3>
-          <p>
-            "Amateurs hack systems, professionals hack people"
-            <b></b>
-          </p>
+          <p>"Amateurs hack systems, professionals hack people"<b></b></p>
         </div>
       </div>
     </div>

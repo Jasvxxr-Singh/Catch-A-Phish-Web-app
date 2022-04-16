@@ -1,7 +1,9 @@
+
+}
 body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: grayscale;
-    background-color: #41506b;
+    -background-color: #41506b;
 }
 
 .hidden.menu {
@@ -142,4 +144,12 @@ body {
 
 .secondary.pointing.menu .toc.item {
     display: none;
+}
+
+/* Login */
+
+.ui.label.aa {
+  background-color: #41506b;
+  font-size: 14px;
+  color: red;
 }

@@ -7,9 +7,7 @@ quiz_blueprint = Blueprint('quiz_bp', __name__)
 
 @quiz_blueprint.route('/quiz', methods=['GET'])
 def quiz():
-    que = "It looks like your someone has attempted to access your bank account using your password. Please reset" + \
-          "your password following the link below:Reset password button links to  https://b775sgH5j4.co/hHjz6Gu"
-    print("1111")
+    #add the questions here
     q1 = Questions(1,
                    "It looks like your someone has attempted to access your bank account using your password. Please reset" + \
                    "your password following the link below:Reset password button links to  https://b775sgH5j4.co/hHjz6Gu",
@@ -30,6 +28,5 @@ def quiz():
     return render_template(
         'quiz/module1.html',
         questionlist=qlist,
-        example=que
 
     )

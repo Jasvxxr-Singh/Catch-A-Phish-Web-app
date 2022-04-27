@@ -16,7 +16,6 @@
     <script src="https://cdnjs/cloudflare.com/akax/libs/semantic-ui/2.4.1/semantic.min.css"></script>
     <link rel="stylesheet" href="../../static/css/styles.css" type="text/css"/>
   </head>
-<a class="ui large button" href="{{ url_for('home_bp.home') }}">HomePage</a>
 
         <div class="ui massive labeled menu">
             <div class="item">Dashboard</div>
@@ -45,12 +44,13 @@
                 Drafts
                 <div class="ui label">2</div>
             </a>
+            <a class="active red item">
+                <i class="sign-out icon" href="{{ url_for('home_bp.home') }}"></i>
+                Exit
 
+            </a>
+        </div>
 
-        </div>
-        <div class="pusher">
-                <div class="ui container">Hello</div>
-        </div>
 
     <body>
         <h1>Question 1</h1>

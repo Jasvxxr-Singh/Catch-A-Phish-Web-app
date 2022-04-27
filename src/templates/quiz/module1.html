@@ -44,30 +44,28 @@
                 Drafts
                 <div class="ui label">2</div>
             </a>
-            <a class="active red item">
-                <i class="sign-out icon" href="{{ url_for('home_bp.home') }}"></i>
-                Exit
 
-            </a>
+            <a class="item" id="home" href="{{ url_for('home_bp.home') }}">Exit</a>
         </div>
 
 
     <body>
         <h1>Question 1</h1>
-        <p>Is this email a phish or a genuine voucher?</p>
+
 
             <form>
                 {% for question in questionlist %}
+                <p>Is this email a phish or a genuine voucher?</p>
                 <h4>
                     {{question.getQuestion()}} <br>
-                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1}}"> {{question.getOption1()}}
-                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2}}"> {{question.getOption2()}}
+                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1}}" required> {{question.getOption1()}}
+                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2}}" required> {{question.getOption2()}}
                 </h4>
                     {% endfor %}
 
 
                 <br><br>
-                <input type="submit" name="submitform" value="Submit">
+                <a class="ui inverted button" href="{{ url_for('submit_bp.submit') }}">submit</a>
 
             </form>
 

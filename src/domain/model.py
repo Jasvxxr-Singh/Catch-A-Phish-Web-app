@@ -32,7 +32,7 @@ class Questions:
     # correctOption = -1
 
     def __init__(self, q_id: int, question: str, option1: str, option2: str, correctoption: int):
-        self.option1 = # we could change it into self.__option as a private varibale if u want
+        self.option1 = option1 # we could change it into self.__option as a private varibale if u want
         self.option2 = option2
         self.q_id = q_id
         self.question = question

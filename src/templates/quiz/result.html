@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+
 </head>
 <body>
+<h1>
+    congratulations on finishing the quiz
+</h1>
+<h2> Here is your quiz result</h2>
+<p>
+    you have got {{quiz_result}} questions right!!
+</p>
+<a class="ui inverted button" href="{{ url_for('resolutions_bp.results') }}">click here to see the resolutions</a>
 
 </body>
 </html>

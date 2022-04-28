@@ -53,4 +53,17 @@ def submit():
         if selected_option == correct_option:
             correct_count += 1
         correct_count = str(correct_count)
-    return correct_count
+    return render_template(
+        'quiz/result.html',
+        quiz_result=correct_count
+    )
+
+
+resolutions_blueprint = Blueprint('resolutions_bp', __name__)
+
+
+@resolutions_blueprint.route('/resolutions', methods=['GET'])
+def results():
+    return render_template(
+        'quiz/resolutions.html'
+    )

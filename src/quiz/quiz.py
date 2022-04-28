@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, session
 
 from flask import Blueprint, render_template
 
@@ -19,7 +19,6 @@ q2 = Questions(2,
                "yes",
                "NO",
                1)
-print(q2.getOption1())
 
 qlist = [q1, q2]
 
@@ -44,15 +43,12 @@ def submit():
     correct_count = 0
     for question in qlist:
         question_id = str(question.getQ_id())
-        print("quetsionid=", type(question_id))
-
-        selected_option = request.form.get(question_id)
-        print("selected_option=", selected_option)
+        selected_option = request.values.get(question_id)
         correct_option = question.get_correct_option()
-        print("correct_option=", correct_option)
         if selected_option == correct_option:
             correct_count += 1
-        correct_count = str(correct_count)
+            print("correct_count", correct_count)
+    correct_count = str(correct_count)
     return render_template(
         'quiz/result.html',
         quiz_result=correct_count

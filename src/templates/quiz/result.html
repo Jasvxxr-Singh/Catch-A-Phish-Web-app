@@ -10,10 +10,22 @@
     congratulations on finishing the quiz
 </h1>
 <h2> Here is your quiz result</h2>
+{% if wrong_q == 0 %}
 <p>
+
     you have got {{quiz_result}} questions right!!
+
 </p>
-<a class="ui inverted button" href="{{ url_for('resolutions_bp.results') }}">click here to see the resolutions</a>
+{% endif %}
+
+{% if wrong_q != 0 %}
+<p>
+
+    you have got {{quiz_result}} questions right!!
+    question(s) {{wrong_q}} are wrong
+</p>
+{% endif %}
+<a class="ui inverted button" href="{{ url_for('resolutions_bp.results') }}">click here to see the full quiz solutions</a>
 
 </body>
 </html>

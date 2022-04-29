@@ -52,12 +52,12 @@
     <body>
         <!-- This is a layout of a "yes" or "no" mutichoice questions, we could add different layout as well, the link below is the video i have followed -->
         <!--https://www.youtube.com/watch?v=PXnS8ftfCr8-->
-        <h1>Question 1</h1>
+        <h1>Let's go</h1>
 
 
             <form action="/submitquiz" method="post">
                 {% for question in questionlist %}
-                <p>Is this email a phish or a genuine voucher?</p>
+                <p>question{{question.getQ_id()}}<br> Is this email a phish or a genuine voucher?</p>
                 <h4>
                     {{question.getQuestion()}} <br>
                 <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1()}}" required> {{question.getOption1()}}

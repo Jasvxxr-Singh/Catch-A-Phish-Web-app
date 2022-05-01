@@ -1,6 +1,6 @@
 import abc
 
-from src.domain.model import User
+from src.domain.model import User, Question
 
 
 repo_instance = None
@@ -12,11 +12,20 @@ class RepositoryException(Exception):
 
 
 class AbstractRepository(abc.ABC):
-    # GETTERS / SETTERS
+    # User objects
     @abc.abstractmethod
     def add_user(self, user: User):
         raise NotImplementedError
 
     @abc.abstractmethod
     def get_user(self, user_name):
+        raise NotImplementedError
+
+    # Question objects
+    @abc.abstractmethod
+    def add_question(self, question: Question):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_question(self, question_id):
         raise NotImplementedError

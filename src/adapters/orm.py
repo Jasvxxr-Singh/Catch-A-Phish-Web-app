@@ -1,8 +1,5 @@
-from sqlalchemy import (
-    Table, MetaData, Column, Integer, String, Date, DateTime,
-    ForeignKey
-)
-from sqlalchemy.orm import backref, mapper, relationship, synonym
+from sqlalchemy import (Table, MetaData, Column, Integer, String)
+from sqlalchemy.orm import backref, mapper
 
 from src.domain import model
 

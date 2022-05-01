@@ -6,7 +6,7 @@ from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from sqlalchemy.sql.expression import asc, text
 
 from src.adapters.repo import AbstractRepository
-from src.domain.model import User
+from src.domain.model import User, Question
 
 
 class SessionContextManager:
@@ -65,3 +65,10 @@ class SqlAlchemyRepository(AbstractRepository):
             pass
 
         return user
+
+    # just to satisfy abstract repository
+    def add_question(self, question: Question):
+        return super().add_question(question)
+
+    def get_question(self, question_id):
+        return super().get_question(question_id)

@@ -4,7 +4,7 @@ from pathlib import Path
 from src.domain.model import User
 import src.adapters.repo as repo
 from src.adapters.memory_repo import MemoryRepository
-from src.adapters import memory_repo, database_repository
+from src.adapters import memory_repo, database_repository, repo_populate
 from src.adapters.orm import metadata, map_model_to_tables
 
 # SQLAlchemy imports
@@ -18,30 +18,40 @@ def create_app(test_config=None):
     app = Flask(__name__)
     app.config.from_object('config.Config')
 
-    database_uri = app.config['SQLALCHEMY_DATABASE_URI']
-    database_echo = app.config['SQLALCHEMY_ECHO']
-    database_engine = create_engine(database_uri, connect_args={"check_same_thread": False}, poolclass=NullPool,
-                                    echo=database_echo)
-    session_factory = sessionmaker(autocommit=False, autoflush=True, bind=database_engine)
-    repo.repo_instance = database_repository.SqlAlchemyRepository(session_factory)
+    data_path = Path('src') / 'adapters' / 'data'
 
-    if app.config['TESTING'] == 'True' or len(database_engine.table_names()) == 0:
-        print("REPOPULATING DATABASE...")
+    if app.config['REPOSITORY'] == 'database': 
+        database_uri = app.config['SQLALCHEMY_DATABASE_URI']
+        database_echo = app.config['SQLALCHEMY_ECHO']
+        database_engine = create_engine(database_uri, connect_args={"check_same_thread": False}, poolclass=NullPool,
+                                        echo=database_echo)
+        session_factory = sessionmaker(autocommit=False, autoflush=True, bind=database_engine)
+        repo.repo_instance = database_repository.SqlAlchemyRepository(session_factory)
 
-        clear_mappers()
-        # create database tables with conditions
-        metadata.create_all(database_engine)
-        # empty tables
-        for table in reversed(metadata.sorted_tables):
-            database_engine.execute(table.delete())
+        if app.config['TESTING'] == 'True' or len(database_engine.table_names()) == 0:
+            print("REPOPULATING DATABASE...")
 
-        map_model_to_tables()
-        #database_mode = True
-        #repository_populate.populate(data_path, repo.repo_instance, database_mode)
-        #print("REPOPULATING DATABASE... FINISHED")
+            clear_mappers()
+            # create database tables with conditions
+            metadata.create_all(database_engine)
+            # empty tables
+            for table in reversed(metadata.sorted_tables):
+                database_engine.execute(table.delete())
 
-    else:
-        map_model_to_tables()
+            map_model_to_tables()
+
+            # import questions from csv
+            database_mode = True
+            repo_populate.populate(data_path, repo.repo_instance, database_mode)
+            print("REPOPULATING DATABASE... FINISHED")
+
+        else:
+            map_model_to_tables()
+    
+    elif app.config['REPOSITORY'] == 'memory': # need 'memory' option for testing purposes
+        repo.repo_instance = MemoryRepository()
+        database_mode = False
+        repo_populate.populate(data_path, repo.repo_instance, database_mode)
  
     with app.app_context():
         from .home import home

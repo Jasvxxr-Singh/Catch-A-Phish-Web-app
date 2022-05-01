@@ -57,25 +57,18 @@
 
             <form action="/submitquiz" method="post">
                 {% for question in questionlist %}
-                <p>question{{question.getQ_id()}}<br> Is this email a phish or a genuine voucher?</p>
+                <p>question{{ question.question_id }}<br> Is this email a phish or a genuine voucher?</p>
                 <h4>
-                    {{question.getQuestion()}} <br>
-                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1()}}" required> {{question.getOption1()}}
-                <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2()}}" required> {{question.getOption2()}}
+                    {{ question.email_content }} <br>
+                <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required> Illegitimate
+                <input type="radio" name="{{ question.question_id }}" value="Legitimate" required> Legitimate
                 </h4>
                     {% endfor %}
-
 
                 <br><br>
                 <input type="submit" name="submitform" value="Submit">
                 <!-- <a class="ui inverted button" href="{{ url_for('submit_bp.submit') }}">submit</a> -->
-
-
-
             </form>
-
-
-
     </body>
 
 

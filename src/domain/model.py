@@ -11,10 +11,6 @@ class User:
         else:
             self.__password = password
 
-        self.__read_books = []
-        self.__reviews = []
-        self.__pages_read = 0
-
     @property
     def user_name(self) -> str:
         return self.__user_name
@@ -24,13 +20,76 @@ class User:
         return self.__password
 
 
-class Questions:
+class Question:
+    def __init__(self, q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool, reason: str):
+        if q_id == "" or not isinstance(q_id, int):
+            self.__q_id = None
+        else:
+            self.__q_id = q_id
+
+        if sender_address == "" or not isinstance(sender_address, str):
+            self.__sender_address = None
+        else:
+            self.__sender_address = sender_address.strip()
+
+        if email_subject == "" or not isinstance(email_subject, str):
+            self.__email_subject = None
+        else:
+            self.__email_subject = email_subject.strip()
+
+        if email_content == "" or not isinstance(email_content, str):
+            self.__email_content = None
+        else:
+            self.__email_content = email_content.strip()
+            
+        if isinstance(is_legitimate, bool):
+            self.__is_legitimate = is_legitimate
+        else:
+            if is_legitimate == "True":
+                self.__is_legitimate = True
+            elif is_legitimate == "False":
+                self.__is_legitimate = False
+
+        if reason == "" or not isinstance(reason, str):
+            self.__reason = None
+        else:
+            self.__reason = reason.strip()
+
+
+    @property
+    def question_id(self):
+        return self.__q_id
+
+    @property
+    def sender_address(self):
+        return self.__sender_address
+
+    @property
+    def email_subject(self):
+        return self.__email_subject
+
+    @property
+    def email_content(self):
+        return self.__email_content
+    
+    @property
+    def is_legitimate(self):
+        return self.__is_legitimate
+
+    @property
+    def reason(self):
+        return self.__reason
+
+
+
+        
     # q_id = -1
     # question = ""
     # option1 = ""
     # option2 = ""
     # correctOption = -1
 
+    """
     def __init__(self, q_id: int, question: str, option1: str, option2: str, correctoption: int):
         self.option1 = option1 # we could change it into self.__option as a private varibale if u want
         self.option2 = option2
@@ -58,3 +117,4 @@ class Questions:
             return self.option1
         elif self.correctoption == 2:
             return self.option2
+    """

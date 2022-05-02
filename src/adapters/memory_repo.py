@@ -20,3 +20,6 @@ class MemoryRepository(AbstractRepository):
 
     def get_question(self, question_id: int):
         return next((question for question in self.__questions if question.question_id == question_id))
+
+    def get_all_questions(self):
+        return self.__questions

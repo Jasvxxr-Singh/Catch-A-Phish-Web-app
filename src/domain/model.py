@@ -42,13 +42,10 @@ class Question:
         else:
             self.__email_content = email_content.strip()
             
-        if isinstance(is_legitimate, bool):
-            self.__is_legitimate = is_legitimate
+        if is_legitimate == "" or not isinstance(is_legitimate, bool):
+            self.__is_legitimate = None
         else:
-            if is_legitimate == "True":
-                self.__is_legitimate = True
-            elif is_legitimate == "False":
-                self.__is_legitimate = False
+            self.__is_legitimate = is_legitimate
 
         if reason == "" or not isinstance(reason, str):
             self.__reason = None

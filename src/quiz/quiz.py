@@ -3,6 +3,8 @@ from flask import request, session
 from flask import Blueprint, render_template
 
 from src.domain.model import Question
+import src.utilities.utilities as utilities
+import src.utilities.services as services
 
 # Temporary Question objects
 # format of a Question object = Question(q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool, reason: str)
@@ -32,12 +34,12 @@ q3 = Question(3,
                False, 
                "The email google.support isn't actually used by Google. The link in the button actually sends the user to a website discuised as a google domain, but really we can see that the domain is com-scan78.co.ac ")
 
-questions_list = [q1, q2, q3]
+#questions_list = [q1, q2, q3] - use for testing if necessary
 
 quiz_blueprint = Blueprint('quiz_bp', __name__)
 @quiz_blueprint.route('/quiz', methods=['GET'])
 def quiz():
-    # add the questions here
+    questions_list = utilities.get_all_questions()
 
     return render_template(
         'quiz/module1.html',
@@ -47,6 +49,7 @@ def quiz():
 submit_blueprint = Blueprint('submit_bp', __name__)
 @submit_blueprint.route('/submitquiz', methods=['POST', 'GET'])
 def submit():
+    questions_list = utilities.get_all_questions()
     correct_count = 0
     wrong_questions = []
     for question in questions_list:

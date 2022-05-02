@@ -29,7 +29,7 @@ def load_questions(data_path: Path, repo: AbstractRepository):
     question_filename = str(Path(data_path) / "questions.csv")
     for data_row in read_csv_file(question_filename):
         question = Question (
-            q_id = int(data_row[0]),
+            q_id = data_row[0],
             sender_address = data_row[1], 
             email_subject = data_row[2], 
             email_content = data_row[3], 

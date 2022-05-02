@@ -8,8 +8,13 @@
             <a class="item" href="https://github.com/uoa-compsci399-s1-2022/team19" target="_blank">Github</a>
             
             <div class="right item">
+                {% if 'user_name' not in session %}
                 <a class="ui inverted button" href="{{ url_for('authentication_bp.login') }}">Log in</a>
                 <a class="ui inverted button" href="{{ url_for('authentication_bp.register') }}">Register</a>
+                {%endif %}
+                {% if 'user_name' in session %}
+                <a class="ui inverted button" href="{{ url_for('authentication_bp.logout') }}">Logout</a>
+                {%endif %}
             </div>
 
             <!-- Script to change the active page based on URL -->

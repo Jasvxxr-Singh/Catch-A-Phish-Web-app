@@ -28,3 +28,7 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get_all_questions(self):
         raise NotImplementedError
+
+    @abc.abstractmethod
+    def chunks(self, data_array: [], per_page: int):
+        raise NotImplementedError

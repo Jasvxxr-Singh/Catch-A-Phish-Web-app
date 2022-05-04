@@ -5,6 +5,7 @@ from flask import Blueprint, render_template
 from src.domain.model import Question
 import src.utilities.utilities as utilities
 import src.utilities.services as services
+import src.adapters.repo as repo
 
 # Temporary Question objects
 # format of a Question object = Question(q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool, reason: str)
@@ -40,6 +41,8 @@ quiz_blueprint = Blueprint('quiz_bp', __name__)
 @quiz_blueprint.route('/quiz', methods=['GET'])
 def quiz():
     questions_list = utilities.get_all_questions()
+    total_number_of_questions = len(questions_list)
+    questions_chunks = utilities.get_chunks(questions_list, 1)
 
     return render_template(
         'quiz/module1.html',

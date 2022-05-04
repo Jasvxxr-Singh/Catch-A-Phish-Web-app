@@ -38,14 +38,37 @@ q3 = Question(3,
 #questions_list = [q1, q2, q3] - use for testing if necessary
 
 quiz_blueprint = Blueprint('quiz_bp', __name__)
-@quiz_blueprint.route('/quiz', methods=['GET'])
-def quiz():
+@quiz_blueprint.route('/quiz', methods=['GET', 'POST'])
+def quiz(page_number=0):
     questions_list = utilities.get_all_questions()
     total_number_of_questions = len(questions_list)
     questions_chunks = utilities.get_chunks(questions_list, 1)
+
+    page_number = request.args.get("page_number")
+    if page_number is None:
+        page_number = 0
+
+    page_number = int(page_number)
+    if page_number == 0:
+        previous_page = 0
+    else:
+        previous_page = page_number - 1
+
+    if page_number == len(questions_chunks) - 1:
+        next_page = len(questions_chunks) - 1
+    else:
+        next_page = page_number + 1
+
+
     return render_template(
         'quiz/module1.html',
         questionlist=questions_list,
+        next_page=next_page,
+        prev_page=previous_page,
+        total_questions=total_number_of_questions,
+        current_page=page_number,
+        q_list=questions_chunks[page_number],
+        num_pages=len(questions_chunks),
     )
 
 submit_blueprint = Blueprint('submit_bp', __name__)

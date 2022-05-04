@@ -1,6 +1,6 @@
 from flask import request, session
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for
 
 from src.domain.model import Question
 import src.utilities.utilities as utilities
@@ -39,7 +39,7 @@ q3 = Question(3,
 
 quiz_blueprint = Blueprint('quiz_bp', __name__)
 @quiz_blueprint.route('/quiz', methods=['GET', 'POST'])
-def quiz(page_number=0):
+def quiz():
     questions_list = utilities.get_all_questions()
     total_number_of_questions = len(questions_list)
     questions_chunks = utilities.get_chunks(questions_list, 1)
@@ -59,10 +59,12 @@ def quiz(page_number=0):
     else:
         next_page = page_number + 1
 
+    question = questions_list[page_number]
+
 
     return render_template(
         'quiz/module1.html',
-        questionlist=questions_list,
+        question=question,
         next_page=next_page,
         prev_page=previous_page,
         total_questions=total_number_of_questions,

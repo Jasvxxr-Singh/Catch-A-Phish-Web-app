@@ -57,14 +57,13 @@
 
 
             <form action="/submitquiz" method="post">
-                {% for question in questionlist %}
                 <p>question{{ question.question_id }}<br> Is this email a phish or a genuine voucher?</p>
                 <h4>
                     {{ question.email_content }} <br>
                 <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required> Illegitimate
                 <input type="radio" name="{{ question.question_id }}" value="Legitimate" required> Legitimate
                 </h4>
-                    {% endfor %}
+
 
                 <br><br>
                 <input type="submit" name="submitform" value="Submit">
@@ -72,6 +71,8 @@
             </form>
     </body>
 
-
+<footer>
+    {% include 'quiz/pagination.html' %}
+</footer>
 
 

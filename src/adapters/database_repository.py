@@ -82,3 +82,10 @@ class SqlAlchemyRepository(AbstractRepository):
     def get_all_questions(self) -> List[Question]:
         questions = self._session_cm.session.query(Question).all()
         return questions
+
+    def chunks(self, data_array: [], per_page: int):
+        if len(data_array) > per_page:
+            for i in range(0, len(data_array), per_page):
+                yield data_array[i: i + per_page]
+        else:
+            yield data_array

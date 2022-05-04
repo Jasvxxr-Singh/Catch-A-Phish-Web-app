@@ -43,7 +43,6 @@ def quiz():
     questions_list = utilities.get_all_questions()
     total_number_of_questions = len(questions_list)
     questions_chunks = utilities.get_chunks(questions_list, 1)
-
     return render_template(
         'quiz/module1.html',
         questionlist=questions_list,

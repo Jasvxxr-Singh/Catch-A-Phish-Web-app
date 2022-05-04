@@ -23,3 +23,9 @@ class MemoryRepository(AbstractRepository):
 
     def get_all_questions(self):
         return self.__questions
+
+    def chunks(self, data_array: [], per_page: int):
+        if len(data_array) > per_page:
+            yield data_array[i: i + per_page]
+        else:
+             yield data_array

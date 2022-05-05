@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -17,7 +16,6 @@
     <script src="https://cdnjs/cloudflare.com/akax/libs/semantic-ui/2.4.1/semantic.min.css"></script>
     <link rel="stylesheet" href="../../static/css/styles.css" type="text/css"/>
   </head>
-
         <div class="ui massive labeled menu">
             <div class="item">Dashboard</div>
             <a class="active teal item">
@@ -49,28 +47,27 @@
             <a class="item" id="home" href="{{ url_for('home_bp.home') }}">Exit</a>
         </div>
 
-
     <body>
-        <h1></h1>
-
-
-            <form action="/submitquiz" method="post">
-                <p>question{{ question.question_id }}<br> Is this a genuine email or is it a phishing attempt?</p>
-                <h4>
-                    {{ question.email_content }} <br>
-                <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required> Illegitimate
-                <input type="radio" name="{{ question.question_id }}" value="Legitimate" required> Legitimate
-                </h4>
-
-
-                <br><br>
-                <input type="submit" name="submitform" value="Submit">
-                <!-- <a class="ui inverted button" href="{{ url_for('submit_bp.submit') }}">submit</a> -->
-            </form>
+        <form action="/submitquiz" method="post">
+            <div class="ui fluid card">
+                <div class="content">
+                  <a class="header">Question {{ question.question_id }}</a>
+                  <div class="meta">
+                    <span class="date">Is this email a phish or a genuine voucher?</span>
+                  </div>
+                  <div class="description">
+                    {{ question.email_content }}
+                  </div>
+                  <div class="extra content">
+                    <input type="radio" name="{{ question.question_id }}" value="Legitimate" required>Legitimate</button>
+                    <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required>Illegitimate</button>
+                    <button class="ui button active" type="submit" name="submitform" value="Submit">Submit</button>
+                    <!-- <button type="submit" name="submitform" value="Submit">Submit</button> -->
+                </div>
+            </div>
+        </form>
     </body>
-
-<footer>
-    {% include 'quiz/pagination.html' %}
-</footer>
-
-
+    
+    <footer>
+        {% include 'quiz/pagination.html' %}
+    </footer>

@@ -14,6 +14,14 @@ class MemoryRepository(AbstractRepository):
     def get_user(self, user_name):
         return next((user for user in self.__users if user.user_name == user_name), None)
 
+    def get_score(self, user_name):
+        user = self.get_user(user_name)
+        return user.score
+
+    def add_score(self, user_name, score: int):
+        user = self.get_user(user_name)
+        user.add_score(score)
+
     # Question objects
     def add_question(self, question: Question):
         self.__questions.append(question)
@@ -24,7 +32,7 @@ class MemoryRepository(AbstractRepository):
     def get_all_questions(self):
         return self.__questions
 
-    def chunks(self, data_array: [], per_page: int):
+    def chunks(self, data_array, per_page: int):
         if len(data_array) > per_page:
             for i in range(0, len(data_array), per_page):
                 yield data_array[i: i + per_page]

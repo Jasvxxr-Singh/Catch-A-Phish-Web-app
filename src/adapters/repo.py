@@ -16,6 +16,14 @@ class AbstractRepository(abc.ABC):
     def get_user(self, user_name):
         raise NotImplementedError
 
+    @abc.abstractmethod
+    def get_score(self, user_name):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def add_score(self, user_name, score: int):
+        raise NotImplementedError
+
     # Question objects
     @abc.abstractmethod
     def add_question(self, question: Question):
@@ -30,5 +38,5 @@ class AbstractRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def chunks(self, data_array: [], per_page: int):
+    def chunks(self, data_array, per_page: int):
         raise NotImplementedError

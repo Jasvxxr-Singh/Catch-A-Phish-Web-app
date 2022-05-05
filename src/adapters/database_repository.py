@@ -65,6 +65,24 @@ class SqlAlchemyRepository(AbstractRepository):
             pass
         return user
 
+    def get_score(self, user_name):
+        user = None
+        try:
+            user = self._session_cm.session.query(User).filter(User._User__user_name == user_name).one()
+            return user.score
+        except NoResultFound:
+            pass
+        return 0
+
+    def add_score(self, user_name, score: int):
+        user = None
+        try:
+            user = self._session_cm.session.query(User).filter(User._User__user_name == user_name).one()
+            user.add_score(score)
+        except NoResultFound:
+            pass
+
+
     # just to satisfy abstract repository
     def add_question(self, question: Question):
         with self._session_cm as scm:
@@ -83,7 +101,7 @@ class SqlAlchemyRepository(AbstractRepository):
         questions = self._session_cm.session.query(Question).all()
         return questions
 
-    def chunks(self, data_array: [], per_page: int):
+    def chunks(self, data_array, per_page: int):
         if len(data_array) > per_page:
             for i in range(0, len(data_array), per_page):
                 yield data_array[i: i + per_page]

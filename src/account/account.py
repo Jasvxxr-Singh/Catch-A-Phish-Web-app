@@ -21,8 +21,10 @@ account_blueprint = Blueprint('account_bp', __name__)
 @account_blueprint.route('/my_account', methods=['GET'])
 def view_account():
     user_name = session['user_name']
+    score = utilities.get_user_score(user_name)
    
     return render_template(
         'account/account.html',
+        score = score
     )
 

@@ -1,6 +1,6 @@
 class User:
 
-    def __init__(self, user_name: str, password: str):
+    def __init__(self, user_name: str, password: str, score: int = 0):
         if user_name == "" or not isinstance(user_name, str):
             self.__user_name = None
         else:
@@ -11,6 +11,11 @@ class User:
         else:
             self.__password = password
 
+        if score == None or not isinstance(score, int):
+            self.__score = 0
+        else:
+            self.__score = score
+
     @property
     def user_name(self) -> str:
         return self.__user_name
@@ -18,6 +23,13 @@ class User:
     @property
     def password(self) -> str:
         return self.__password
+
+    @property
+    def score(self) -> int:
+        return self.__score
+
+    def add_score(self, score: int):
+        self.__score += score
 
 
 class Question:

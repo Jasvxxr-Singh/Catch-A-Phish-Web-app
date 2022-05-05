@@ -38,7 +38,6 @@ def register():
         form=form,
         user_name_error_message=user_name_not_unique,
         handler_url=url_for('authentication_bp.register'),
-
     )
 
 
@@ -77,7 +76,6 @@ def login():
         user_name_error_message=user_name_not_recognised,
         password_error_message=password_does_not_match_user_name,
         form=form,
-
     )
 
 @authentication_blueprint.route('/logout')

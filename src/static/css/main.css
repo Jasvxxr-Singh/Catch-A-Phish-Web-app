@@ -306,3 +306,14 @@ body {
   font-size: 14px;
   color: red;
 }
+
+/* login/register pages */
+#authentication {
+    margin: 20% 45% 20% 42%;
+    background-color: #576785;
+}
+
+#account {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}

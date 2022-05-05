@@ -68,6 +68,9 @@ def create_app(test_config=None):
         from .authentication import authentication
         app.register_blueprint(authentication.authentication_blueprint)
 
+        from .account import account
+        app.register_blueprint(account.account_blueprint)
+
         @app.before_request
         def before_flask_http_request_function():
             if isinstance(repo.repo_instance, database_repository.SqlAlchemyRepository):

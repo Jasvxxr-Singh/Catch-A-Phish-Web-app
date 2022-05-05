@@ -7,9 +7,16 @@
       <h1 class="ui inverted header">Catching a Phish</h1>
       <h2>The game for you.</h2>
 
+
+      {% if 'user_name' in session %}
       <a class="item" href="{{ url_for('quiz_bp.quiz') }}">
         <div class="ui huge primary button">Lets play<i class="right arrow icon"></i></div>
       </a>
+      {% else %}
+      <a class="item" href="{{ url_for('authentication_bp.login') }}">
+        <div class="ui huge primary button">Lets play<i class="right arrow icon"></i></div>
+      </a>
+      {% endif %}
 
     </div>
   </div>

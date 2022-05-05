@@ -51,13 +51,11 @@
 
 
     <body>
-        <!-- This is a layout of a "yes" or "no" mutichoice questions, we could add different layout as well, the link below is the video i have followed -->
-        <!--https://www.youtube.com/watch?v=PXnS8ftfCr8-->
-        <h1>Let's go</h1>
+        <h1></h1>
 
 
             <form action="/submitquiz" method="post">
-                <p>question{{ question.question_id }}<br> Is this email a phish or a genuine voucher?</p>
+                <p>question{{ question.question_id }}<br> Is this a genuine email or is it a phishing attempt?</p>
                 <h4>
                     {{ question.email_content }} <br>
                 <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required> Illegitimate

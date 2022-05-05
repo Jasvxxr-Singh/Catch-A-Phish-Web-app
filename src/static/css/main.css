@@ -307,3 +307,6 @@ body {
   color: red;
 }
 
+.ui.inverted.vertical.footer.segment {
+    top: 795px
+}

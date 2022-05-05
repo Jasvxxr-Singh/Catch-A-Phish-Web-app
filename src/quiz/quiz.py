@@ -12,7 +12,7 @@ import src.adapters.repo as repo
 q1 = Question(1,  # the id of the question
                "testaddress1@gmail.com", # sender email address
                "email subject 1", # email subject
-               "It looks like your someone has attempted to access your bank account using your password. Please reset" + \
+               "It looks like your someone has attempted to access your bank account using your password. Please reset" +
                "your password following the link below:Reset password button links to  https://b775sgH5j4.co/hHjz6Gu",
                False, # False = illegitimate, True = legitimate
                "Urgency in subject. No personalisation in email content. Asks for personal information regarding your bank account - whereas most banks will never ask you to reveal personal information immediately. Website linked in the reset password button has the domain: b775sgH5j4.co which is not a bank related website. ")  # the correct answer

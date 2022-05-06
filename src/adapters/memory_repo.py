@@ -22,6 +22,9 @@ class MemoryRepository(AbstractRepository):
         user = self.get_user(user_name)
         user.add_score(score)
 
+    def get_all_users(self):
+        return self.__users
+
     # Question objects
     def add_question(self, question: Question):
         self.__questions.append(question)

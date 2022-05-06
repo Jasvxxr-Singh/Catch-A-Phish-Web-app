@@ -26,6 +26,7 @@ def quiz():
     else: next_page = page_number + 1
 
     question = utilities.get_question(page_number + 1)
+    score = utilities.get_user_score(session['user_name'])
 
     num_emails_left, num_spam, num_legit = (total_number_of_questions - page_number), 5, 5
 
@@ -38,13 +39,13 @@ def quiz():
         current_page=page_number,
         q_list=questions_chunks[page_number],
         num_pages=len(questions_chunks),
-        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit,
+        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit, score = score,
     )
 
 submit_blueprint = Blueprint('submit_bp', __name__)
 @submit_blueprint.route('/submitquiz', methods=['POST', 'GET'])
 def submit():
-    # Bring user back to question screen 
+    # Bring user back to question screen (essentially same as Quiz() blueprint)
     questions_list = utilities.get_all_questions()
     total_number_of_questions = len(questions_list)
     questions_chunks = utilities.get_chunks(questions_list, 1)
@@ -59,6 +60,8 @@ def submit():
     else: next_page = page_number + 1
 
     question = utilities.get_question(page_number + 1)
+
+    score = utilities.get_user_score(session['user_name'])
 
     num_emails_left, num_spam, num_legit = (total_number_of_questions - page_number), 5, 5
     correct = False
@@ -91,7 +94,7 @@ def submit():
         current_page=page_number,
         q_list=questions_chunks[page_number],
         num_pages=len(questions_chunks),
-        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit,
+        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit, score = score
     )
 
 

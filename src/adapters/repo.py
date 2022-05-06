@@ -24,6 +24,11 @@ class AbstractRepository(abc.ABC):
     def add_score(self, user_name, score: int):
         raise NotImplementedError
 
+    @abc.abstractmethod
+    def get_all_users(self):
+        raise NotImplementedError
+        
+
     # Question objects
     @abc.abstractmethod
     def add_question(self, question: Question):

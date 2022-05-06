@@ -84,6 +84,10 @@ class SqlAlchemyRepository(AbstractRepository):
             except NoResultFound:
                 pass
 
+    def get_all_users(self):
+        users = self._session_cm.session.query(User).all()
+        return users
+
     # just to satisfy abstract repository
     def add_question(self, question: Question):
         with self._session_cm as scm:

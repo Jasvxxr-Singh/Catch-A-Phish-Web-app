@@ -21,3 +21,5 @@ def get_user_score(user_name):
 def update_user_score(user_name, score: int):
     services.update_user_score(repo.repo_instance, user_name, score)
 
+def get_leaderboard():
+    return services.get_leaderboard(repo.repo_instance)

@@ -22,9 +22,11 @@ account_blueprint = Blueprint('account_bp', __name__)
 def view_account():
     user_name = session['user_name']
     score = utilities.get_user_score(user_name)
+    leaderboard = utilities.get_leaderboard()
    
     return render_template(
         'account/account.html',
-        score = score
+        score = score, 
+        leaderboard = leaderboard
     )
 

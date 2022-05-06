@@ -15,3 +15,16 @@ def get_user_score(repo: AbstractRepository, user_name):
 
 def update_user_score(repo: AbstractRepository, user_name, score: int):
     repo.add_score(user_name, score)
+
+def get_leaderboard(repo: AbstractRepository):
+    users = repo.get_all_users()
+    leaderboard = {1: None, 2: None, 3: None, 4: None, 5: None}
+
+    if len(users) >= 1:
+        users_and_scores = [(user, user.score) for user in users]
+        users_and_scores.sort(key=lambda a: a[1])
+
+        for x in range(len(users_and_scores)):
+            leaderboard[x + 1] = users_and_scores[x]
+
+    return leaderboard

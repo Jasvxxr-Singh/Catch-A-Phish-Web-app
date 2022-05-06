@@ -1,31 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-
-</head>
-<body>
-<h1>
-    congratulations on finishing the quiz
-</h1>
-<h2> Here is your quiz result</h2>
-{% if wrong_q == 0 %}
-<p>
-
-    you have got {{quiz_result}} questions right!!
-
-</p>
+{% if quiz_result %}
+    <p><b>Correct</b></p>
+    <p>This email is {{ correct_option }}</p>
+{% else %}
+    <p><b>Incorrect</b></p>
+    <p>This email is actually {{ correct_option }}</p>
 {% endif %}
 
-{% if wrong_q != 0 %}
-<p>
-
-    you have got {{quiz_result}} questions right!!
-    question(s) {{wrong_q}} are wrong
-</p>
+{% if current_page == total_questions - 1 %}
+    <a class="ui button" href="{{ url_for('home_bp.home')}}">Exit</a>
+{% else %}
+    <a class="ui button" href="{{ url_for('quiz_bp.quiz', page_number = next_page) }}">Next question</a>
 {% endif %}
-<a class="ui inverted button" href="{{ url_for('resolutions_bp.results') }}">click here to see the full quiz solutions</a>
 
-</body>
-</html>

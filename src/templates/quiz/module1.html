@@ -1,73 +1,73 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"/>
-    <meta name="description" content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."/>
-    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
-    <meta name="author" content="PPType" />
-    <meta name="theme-color" content="#1E90FF" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-      type="text/css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs/cloudflare.com/akax/libs/semantic-ui/2.4.1/semantic.min.css"></script>
-    <link rel="stylesheet" href="../../static/css/styles.css" type="text/css"/>
-  </head>
-        <div class="ui massive labeled menu">
-            <div class="item">Dashboard</div>
-            <a class="active teal item">
-                <i class="inbox icon"></i>
-                Inbox
-                <div class="ui label">20</div>
-            </a>
-            <a class="item">
-                <i class="exclamation triangle icon"></i>
-                Spam
-                <div class="ui label">51</div>
-            </a>
-            <a class="item">
-                <i class="star outline icon"></i>
-                Starred
-                <div class="ui label">12</div>
-            </a>
-            <a class="item">
-                <i class="paper plane outline icon"></i>
-                Sent
-                <div class="ui label">21</div>
-            </a>
-            <a class="item">
-                <i class="newspaper outline icon"></i>
-                Drafts
-                <div class="ui label">2</div>
-            </a>
+{% extends 'layout.html' %} {% block content %}
+<div id="quiz">
+    <div class="ui middle aligned stackable grid container">
+        <div id="quiz-form">
+            <form action="/submitquiz" method="post">
+                <div class="ui fluid card">
+                    <div class="content">
+                        <p class="header">Question {{ question.question_id }}</p>
+                        
+                        <div class="meta">
+                            <span class="date">Is this email a phish or a genuine voucher?</span>
+                        </div>
 
-            <a class="item" id="home" href="{{ url_for('home_bp.home') }}">Exit</a>
+                        <br><br>
+
+                        <div id="quiz-header">
+                            {% include 'quiz/header.html' %}
+                        </div>
+
+                        <br>
+                        
+                        <div id="quiz-email">
+                            <div id="sender-address">
+                                <div id="sender-icon">
+                                    <img src="../../static/images/sender.png">
+                                </div>
+                                <div>
+                                    <p><b>From: {{ question.sender_address }}</b></p>
+                                    <p>To: {{ session['user_name'] }}@mail.com</p>
+                                </div>
+                            </div>
+                            
+                            <br>
+
+                            <div class="description">
+                                {{ question.email_content }}
+                            </div>
+                        </div>
+                       
+                      
+                        <br><br>
+
+                        {% if not results %}
+                        <div class="extra content">
+                        
+                            <a href="{{ url_for('submit_bp.submit', page_number = current_page, option = 1) }}">
+                                <input class="ui button" value="Legitimate">
+                            </a>
+
+                            <a href="{{ url_for('submit_bp.submit', page_number = current_page, option = 0) }}">
+                                <input class="ui button" value="Illegitimate">
+                            </a>
+                       
+                        {% elif results %}
+                        <div id="quiz-results">
+                            {% include 'quiz/result.html' %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
         </div>
 
-    <body>
-        <form action="/submitquiz" method="post">
-            <div class="ui fluid card">
-                <div class="content">
-                  <a class="header">Question {{ question.question_id }}</a>
-                  <div class="meta">
-                    <span class="date">Is this email a phish or a genuine voucher?</span>
-                  </div>
-                  <div class="description">
-                    {{ question.email_content }}
-                  </div>
-                  <div class="extra content">
-                    <input type="radio" name="{{ question.question_id }}" value="Legitimate" required>Legitimate</button>
-                    <input type="radio" name="{{ question.question_id }}" value="Illegitimate" required>Illegitimate</button>
-                    <button class="ui button active" type="submit" name="submitform" value="Submit">Submit</button>
-                    <!-- <button type="submit" name="submitform" value="Submit">Submit</button> -->
-                </div>
-            </div>
-        </form>
-    </body>
+        <br><br>
+
+        <div class="quiz-pagination-footer">
+            {% include 'quiz/pagination.html' %}
+        </div>
+    </div>
     
-    <footer>
-        {% include 'quiz/pagination.html' %}
-    </footer>
+</div>
+
+{% endblock %}

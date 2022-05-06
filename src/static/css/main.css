@@ -145,7 +145,6 @@ body {
 }
 
 /* Login */
-
 .ui.label.aa {
   background-color: #41506b;
   font-size: 14px;
@@ -313,7 +312,38 @@ body {
     background-color: #576785;
 }
 
+/* user account page */
 #account {
     margin-top: 20%;
     margin-bottom: 20%;
 }
+
+/* quiz pages */
+#quiz, #resolutions, #results {
+    margin-top: 15%;
+    margin-bottom: 20%;
+}
+
+#sender-address {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;  
+}
+
+#sender-icon img {
+    display: inline-block;
+    height: 40px;
+    margin-right: 20px;
+}
+
+#quiz-results {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #9eadcb;
+}
+
+/* pagination styles */
+.pagination {
+    width: 100%;
+}
+

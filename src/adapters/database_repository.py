@@ -76,12 +76,13 @@ class SqlAlchemyRepository(AbstractRepository):
 
     def add_score(self, user_name, score: int):
         user = None
-        try:
-            user = self._session_cm.session.query(User).filter(User._User__user_name == user_name).one()
-            user.add_score(score)
-        except NoResultFound:
-            pass
-
+        with self._session_cm as scm:
+            try:
+                user = self._session_cm.session.query(User).filter(User._User__user_name == user_name).one()
+                user.add_score(score)
+                scm.commit()
+            except NoResultFound:
+                pass
 
     # just to satisfy abstract repository
     def add_question(self, question: Question):

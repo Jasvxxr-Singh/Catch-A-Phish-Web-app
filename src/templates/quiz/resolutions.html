@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-</head>
-<body>
-<h>
-    <a class="item" id="home" href="{{ url_for('home_bp.home') }}">Exit</a>
-  resolutions
-</h>
-
-</body>
-</html>
+{% extends 'layout.html' %} {% block content %}
+<div id="resolutions">
+  <div class="ui middle aligned stackable grid container"></div>
+    <h>
+      <a class="item" id="home" href="{{ url_for('home_bp.home') }}">Exit</a>
+      resolutions
+    </h>
+  </div>
+</div>
+{% endblock %}

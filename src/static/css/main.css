@@ -343,10 +343,17 @@ body {
     background-color: #9eadcb;
 }
 
+/* leaderboard page */
+#leaderboards {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
 /* pagination styles */
 .pagination {
     width: 100%;
 }
+
 
 /* leaderboard */
 *, *::before, *::after {

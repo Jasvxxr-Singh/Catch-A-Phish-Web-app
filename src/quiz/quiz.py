@@ -105,3 +105,16 @@ def results():
         'quiz/resolutions.html'
 
     )
+
+leaderboard_blueprint = Blueprint('leaderboard_bp', __name__)
+@leaderboard_blueprint.route('/leaderboard_page', methods=['GET'])
+def leaderboard():
+    user_name = session['user_name']
+    score = utilities.get_user_score(user_name)
+    leaderboard = utilities.get_leaderboard()
+
+    return render_template(
+        'quiz/leaderboard_page.html',
+        score = score,
+        leaderboard = leaderboard
+    )

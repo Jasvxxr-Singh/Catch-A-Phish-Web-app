@@ -1,9 +1,13 @@
 {% if quiz_result %}
     <p><b>Correct</b></p>
     <p>This email is {{ correct_option }}</p>
+    <p><b>Why is it correct?</b></p>
+    <p>{{ question.reason }}</p>
 {% else %}
     <p><b>Incorrect</b></p>
     <p>This email is actually {{ correct_option }}</p>
+    <p><b>Why is it incorrect?</b></p>
+    <p>{{ question.reason }}</p>
 {% endif %}
 
 {% if current_page == total_questions - 1 %}

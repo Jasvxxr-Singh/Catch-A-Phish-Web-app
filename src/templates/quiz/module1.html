@@ -6,7 +6,7 @@
                 <div class="ui fluid card">
                     <div class="content">
                         <p class="header">Question {{ question.question_id }}</p>
-                        
+
                         <div class="meta">
                             <span class="date">Is this email a phish or a genuine voucher?</span>
                         </div>
@@ -18,7 +18,7 @@
                         </div>
 
                         <br>
-                        
+
                         <div id="quiz-email">
                             <div id="sender-address">
                                 <div id="sender-icon">
@@ -29,20 +29,20 @@
                                     <p>To: {{ session['user_name'] }}@mail.com</p>
                                 </div>
                             </div>
-                            
+
                             <br>
 
                             <div class="description">
                                 {{ question.email_content }}
                             </div>
                         </div>
-                       
-                      
+
+
                         <br><br>
 
                         {% if not results %}
                         <div class="extra content">
-                        
+
                             <a href="{{ url_for('submit_bp.submit', page_number = current_page, option = 1) }}">
                                 <input class="ui button" value="Legitimate">
                             </a>
@@ -50,7 +50,7 @@
                             <a href="{{ url_for('submit_bp.submit', page_number = current_page, option = 0) }}">
                                 <input class="ui button" value="Illegitimate">
                             </a>
-                       
+
                         {% elif results %}
                         <div id="quiz-results">
                             {% include 'quiz/result.html' %}
@@ -67,7 +67,7 @@
             {% include 'quiz/pagination.html' %}
         </div>
     </div>
-    
+
 </div>
 
 {% endblock %}

@@ -23,8 +23,10 @@ def get_leaderboard(repo: AbstractRepository):
     if len(users) >= 1:
         users_and_scores = [(user, user.score) for user in users]
         users_and_scores.sort(key=lambda a: a[1])
+        users_and_scores = users_and_scores[::-1]
 
         for x in range(len(users_and_scores)):
             leaderboard[x + 1] = users_and_scores[x]
 
     return leaderboard
+

@@ -6,17 +6,18 @@ import src.utilities.utilities as utilities
 import src.utilities.services as services
 import src.adapters.repo as repo
 
+# questions need to be global to be used in submit and quiz2 blueprint
+# --------------------------------------------------------------------
+q1 = (1, "Someone has successfully phished you")
+q2 = (2, "")
+q3 = (3, "")
+qlist = [q1, q2, q3]
+# --------------------------------------------------------------------
+
 quiz_blueprint2 = Blueprint('quiz_bp2', __name__)
 @quiz_blueprint2.route('/quiz2', methods=['GET', 'POST'])
 def quiz2():
-    q1 = (1, "Someone has successfully phished you"
-          )
-
-    q2 = (2, "")
-
-    q3 = (3, "")
-
-    qlist = [q1, q2, q3]
+    
     total_number_of_questions = len(qlist)
     question_chunks = utilities.get_chunks(qlist, 1)
 
@@ -38,7 +39,7 @@ def quiz2():
 
 
     return render_template(
-        'quiz2/module2.html',
+        'quiz/module2.html',
         questionlist=qlist,
         next_page=next_page,
         prev_page=previous_page,
@@ -48,7 +49,7 @@ def quiz2():
     )
 
 
-submit_blueprint2 = Blueprint(submit_bp2, __name__)
+submit_blueprint2 = Blueprint('submit_bp2', __name__)
 @submit_blueprint2.route('/submitquiz2', methods=['POST', 'GET'])
 def submit2():
     correct_count = 0

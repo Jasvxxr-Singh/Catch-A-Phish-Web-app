@@ -60,11 +60,20 @@ def create_app(test_config=None):
         from .about import about
         app.register_blueprint(about.about_blueprint)
 
-        from .quiz import quiz
+        from .walkthrough import walkthrough
+        app.register_blueprint(walkthrough.walkthrough_blueprint)
+
+        from .quiz import quiz, quiz2, modules
+            # Quiz 1
         app.register_blueprint(quiz.quiz_blueprint)
         app.register_blueprint(quiz.submit_blueprint)
         app.register_blueprint(quiz.resolutions_blueprint)
         app.register_blueprint(quiz.leaderboard_blueprint)
+            # Quiz 2
+        app.register_blueprint(quiz2.quiz_blueprint2)
+        app.register_blueprint(quiz2.submit_blueprint2)
+            # Modules page
+        app.register_blueprint(modules.modules_blueprint)
 
         from .authentication import authentication
         app.register_blueprint(authentication.authentication_blueprint)

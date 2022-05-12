@@ -95,5 +95,31 @@ class Question:
 
 
 class Question2:
+    def __init__(self, q_id: int, question: str, option1: str, option2: str, correctoption: int):
+        self.option1 = option1 
+        self.option2 = option2
+        self.q_id = q_id
+        self.question = question
+        self.correctoption = correctoption
 
+    def getQ_id(self):
+        return self.q_id
+
+    def getQuestion(self):
+        return self.question
+
+    def getOption1(self):
+        return self.option1
+
+    def getOption2(self):
+        return self.option2
+
+    def getCorrectionOption(self):
+        return self.correctoption
+
+    def get_correct_option(self):
+        if self.correctoption == 1:
+            return self.option1
+        elif self.correctoption == 2:
+            return self.option2
 

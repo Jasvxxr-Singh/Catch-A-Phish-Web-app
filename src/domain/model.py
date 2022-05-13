@@ -33,7 +33,8 @@ class User:
 
 
 class Question:
-    def __init__(self, q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool, reason: str):
+    def __init__(self, q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool,
+                 reason: str):
         if q_id == "" or not isinstance(q_id, int):
             self.__q_id = None
         else:
@@ -53,7 +54,7 @@ class Question:
             self.__email_content = None
         else:
             self.__email_content = email_content.strip()
-            
+
         if is_legitimate == "" or not isinstance(is_legitimate, bool):
             self.__is_legitimate = None
         else:
@@ -63,7 +64,6 @@ class Question:
             self.__reason = None
         else:
             self.__reason = reason.strip()
-
 
     @property
     def question_id(self):
@@ -80,7 +80,7 @@ class Question:
     @property
     def email_content(self):
         return self.__email_content
-    
+
     @property
     def is_legitimate(self):
         return self.__is_legitimate
@@ -90,10 +90,7 @@ class Question:
         return self.__reason
 
 
-
-        
-
-
+'''
 class Question2:
     def __init__(self, q_id: int, question: str, option1: str, option2: str, correctoption: int):
         self.option1 = option1 
@@ -122,4 +119,46 @@ class Question2:
             return self.option1
         elif self.correctoption == 2:
             return self.option2
+
+'''
+
+
+class Question2:
+    def __init__(self, q_id: int, question: str, option1: str, option2: str, option3: str, option4: str,
+                 correctoption: int):
+        self.q_id = q_id
+        self.question = question
+        self.option1 = option1
+        self.option2 = option2
+        self.option3 = option3
+        self.option4 = option4
+        self.correctoption = correctoption
+
+    def getQ_id(self):
+        return self.q_id
+
+    def getQuestion(self):
+        return self.question
+
+    def getOption1(self):
+        return self.option1
+
+    def getOption2(self):
+        return self.option2
+
+    def getOption3(self):
+        return self.option3
+
+    def getOption4(self):
+        return self.option4
+
+    def get_correct_option(self):
+        if self.correctoption == 1:
+            return self.option1
+        if self.correctoption == 2:
+            return self.option2
+        if self.correctoption == 3:
+            return self.option3
+        if self.correctoption == 4:
+            return self.option4
 

@@ -8,6 +8,8 @@ import src.utilities.services as services
 import src.adapters.repo as repo
 
 quiz_blueprint = Blueprint('quiz_bp', __name__)
+
+
 @quiz_blueprint.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     questions_list = utilities.get_all_questions()
@@ -15,15 +17,19 @@ def quiz():
     questions_chunks = utilities.get_chunks(questions_list, 1)
 
     page_number = request.args.get("page_number")
-    
+
     if page_number is None: page_number = 0
     page_number = int(page_number)
-    
-    if page_number == 0: previous_page = 0
-    else: previous_page = page_number - 1
 
-    if page_number == len(questions_chunks) - 1: next_page = len(questions_chunks) - 1
-    else: next_page = page_number + 1
+    if page_number == 0:
+        previous_page = 0
+    else:
+        previous_page = page_number - 1
+
+    if page_number == len(questions_chunks) - 1:
+        next_page = len(questions_chunks) - 1
+    else:
+        next_page = page_number + 1
 
     question = utilities.get_question(page_number + 1)
     score = utilities.get_user_score(session['user_name'])
@@ -39,10 +45,13 @@ def quiz():
         current_page=page_number,
         q_list=questions_chunks[page_number],
         num_pages=len(questions_chunks),
-        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit, score = score,
+        num_emails_left=num_emails_left, num_spam=num_spam, num_legit=num_legit, score=score,
     )
 
+
 submit_blueprint = Blueprint('submit_bp', __name__)
+
+
 @submit_blueprint.route('/submitquiz', methods=['POST', 'GET'])
 def submit():
     # Bring user back to question screen (essentially same as Quiz() blueprint)
@@ -50,14 +59,18 @@ def submit():
     total_number_of_questions = len(questions_list)
     questions_chunks = utilities.get_chunks(questions_list, 1)
     page_number = request.args.get("page_number")
-    
+
     if page_number is None: page_number = 0
     page_number = int(page_number)
-    if page_number == 0: previous_page = 0
-    else: previous_page = page_number - 1
+    if page_number == 0:
+        previous_page = 0
+    else:
+        previous_page = page_number - 1
 
-    if page_number == len(questions_chunks) - 1: next_page = len(questions_chunks) - 1
-    else: next_page = page_number + 1
+    if page_number == len(questions_chunks) - 1:
+        next_page = len(questions_chunks) - 1
+    else:
+        next_page = page_number + 1
 
     question = utilities.get_question(page_number + 1)
 
@@ -68,12 +81,15 @@ def submit():
     selected_option = request.values.get("option")
 
     # Find if question is legit or not depending on T/F value of is_legitimate property
-    if question.is_legitimate: correct_option = 1
-    else: correct_option = 0
+    if question.is_legitimate:
+        correct_option = 1
+    else:
+        correct_option = 0
 
-    if int(selected_option) == int(correct_option): 
+    if int(selected_option) == int(correct_option):
         correct = True
-    else: correct = False
+    else:
+        correct = False
 
     answer = "Illegitimate" if correct_option == 0 else "Legitimate"
 
@@ -83,10 +99,10 @@ def submit():
 
     return render_template(
         'quiz/module1.html',
-        results = True, 
+        results=True,
         quiz_result=correct,
-        correct_option = answer,
-        
+        correct_option=answer,
+
         question=question,
         next_page=next_page,
         prev_page=previous_page,
@@ -94,11 +110,13 @@ def submit():
         current_page=page_number,
         q_list=questions_chunks[page_number],
         num_pages=len(questions_chunks),
-        num_emails_left = num_emails_left, num_spam = num_spam, num_legit = num_legit, score = score
+        num_emails_left=num_emails_left, num_spam=num_spam, num_legit=num_legit, score=score
     )
 
 
 resolutions_blueprint = Blueprint('resolutions_bp', __name__)
+
+
 @resolutions_blueprint.route('/resolutions', methods=['GET'])
 def results():
     return render_template(
@@ -106,7 +124,10 @@ def results():
 
     )
 
+
 leaderboard_blueprint = Blueprint('leaderboard_bp', __name__)
+
+
 @leaderboard_blueprint.route('/leaderboard_page', methods=['GET'])
 def leaderboard():
     user_name = session['user_name']
@@ -115,6 +136,6 @@ def leaderboard():
 
     return render_template(
         'quiz/leaderboard_page.html',
-        score = score,
-        leaderboard = leaderboard
+        score=score,
+        leaderboard=leaderboard
     )

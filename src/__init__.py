@@ -13,6 +13,8 @@ from sqlalchemy.orm import sessionmaker, clear_mappers
 from sqlalchemy.pool import NullPool
 
 # Import databases or repositories here
+from src.quiz import quiz2
+
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -65,6 +67,10 @@ def create_app(test_config=None):
         app.register_blueprint(quiz.submit_blueprint)
         app.register_blueprint(quiz.resolutions_blueprint)
         app.register_blueprint(quiz.leaderboard_blueprint)
+
+        from .quiz import quiz2
+        app.register_blueprint(quiz2.quiz_blueprint2)
+        app.register_blueprint(quiz2.submit_blueprint2)
 
         from .authentication import authentication
         app.register_blueprint(authentication.authentication_blueprint)

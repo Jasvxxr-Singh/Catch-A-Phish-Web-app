@@ -1,0 +1,43 @@
+{% extends 'layout.html' %} {% block content %}
+
+<html>
+
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+    <form action="/submitquiz" method="post">
+        <div class="quiz2Content">
+    {% for question in questionlist%}
+        <h4>
+            {{question.getQuestion()}} <br>
+        <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1()}}"> {{question.getOption1()}} <br>
+        <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2()}}"> {{question.getOption2()}}<br>
+        <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption3()}}"> {{question.getOption3()}}<br>
+        <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption4()}}"> {{question.getOption4()}}<br>
+        </h4>
+            {% endfor %}
+          <br><br>
+                <input type="submit" name="submitform" value="Submit">
+        </div>
+
+    </form>
+    <div class="quiz-pagination-footer">
+            {% include 'quiz/pagination2.html' %}
+        </div>
+
+
+
+</body>
+</html>
+
+{% endblock %}

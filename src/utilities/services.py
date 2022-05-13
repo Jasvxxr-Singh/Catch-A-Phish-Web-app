@@ -1,3 +1,5 @@
+import random
+
 from src.adapters.repo import AbstractRepository
 from src.domain.model import User, Question
 
@@ -33,3 +35,11 @@ def get_leaderboard(repo: AbstractRepository):
             leaderboard[x + 1] = users_and_scores[x]
 
     return leaderboard
+
+def get_10_questions(repo: AbstractRepository):
+    all_questions = repo.get_all_questions()
+    ten_questions = []
+    random_sample = random.sample(range(len(all_questions)), 10)
+    for number in random_sample:
+        ten_questions.append(all_questions[number - 1])
+    return ten_questions

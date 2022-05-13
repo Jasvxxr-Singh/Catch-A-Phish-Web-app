@@ -1,8 +1,18 @@
+import random
 from src.adapters.repo import AbstractRepository
 from src.domain.model import User, Question
 
 def get_all_questions(repo: AbstractRepository):
     return repo.get_all_questions()
+
+def get_10_questions(repo: AbstractRepository):
+    all_questions = repo.get_all_questions()
+    ten_questions = []
+    random_sample = random.sample(range(len(all_questions)), 10)
+    for number in random_sample:
+        ten_questions.append(all_questions[number - 1])
+    return ten_questions
+
 
 def get_question(repo: AbstractRepository, question_id: int):
     return repo.get_question(question_id)

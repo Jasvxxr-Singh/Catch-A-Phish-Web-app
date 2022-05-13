@@ -9,6 +9,9 @@ utilities_blueprint = Blueprint('utilities_bp', __name__)
 def get_all_questions():
     return services.get_all_questions(repo.repo_instance)
 
+def get_10_questions():
+    return services.get_10_questions(repo.repo_instance)
+
 def get_question(question_id: int):
     return services.get_question(repo.repo_instance, question_id)
 

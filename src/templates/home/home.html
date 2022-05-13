@@ -8,7 +8,7 @@
       <h2>The game for you.</h2>
 
       {% if 'user_name' in session %}
-      <a class="item" href="{{ url_for('quiz_bp.quiz') }}">
+      <a class="item" href="{{ url_for('modules_bp.modules') }}">
         <div class="ui huge primary button">Lets play<i class="right arrow icon"></i></div>
 
       </a>
@@ -20,7 +20,7 @@
         <div class="ui huge primary button">Lets play<i class="right arrow icon"></i></div>
       </a>
       {% endif %}
-      <a class="item" href="{{ url_for('home_bp.home') }}">
+      <a class="item" href="{{ url_for('walkthrough_bp.walkthrough') }}">
         <button class="ui button">Walkthrough</button>
       </a>
 
@@ -34,7 +34,7 @@
         <div class="eight wide column">
           <h3 class="ui header">Catching A Phish is a web-based game application teaching users to apply psychological skills to combat modern Phishing attacks.</h3>
           <p>
-            <a class="ui large button">Read More</a>
+            <a class="ui large button" href="{{ url_for('walkthrough_bp.walkthrough') }}">Take the tutorial</a>
           </p>
           <h3 class="ui header">So, what is phishing?</h3>
             <a class="ui large button" href="{{ url_for('about_bp.about') }}">About</a>
@@ -47,6 +47,7 @@
     </div>
   </div>
 
+  <br><br>
   <div class="ui vertical stripe quote segment">
     <div class="ui equal width stackable internally celled grid">
       <div class="center aligned row">
@@ -60,8 +61,8 @@
         </div>
       </div>
     </div>
+    <br><br>
   </div>
-  
 </div>
     
 

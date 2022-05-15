@@ -34,6 +34,7 @@ quiz_blueprint2 = Blueprint('quiz_bp2', __name__)
 
 @quiz_blueprint2.route('/quiz2', methods=['GET', 'POST'])
 def quiz2():
+    """
     # implements pagination or do we really need it?
     total_number_of_questions = len(qlist)
     question_chunks = utilities.get_chunks(qlist, 1)
@@ -53,15 +54,10 @@ def quiz2():
         next_page = len(question_chunks) - 1
     else:
         next_page = page_number + 1
-
+"""
     return render_template(
         'quiz/module2.html',
         questionlist=qlist,
-        next_page=next_page,
-        prev_page=previous_page,
-        total_number_of_questions=total_number_of_questions,
-        num_pages=len(question_chunks),
-        current_page=page_number,
 
     )
 

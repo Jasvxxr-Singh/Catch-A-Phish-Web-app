@@ -477,15 +477,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     padding: 40px;
-    float: left;
-    position: relative;
-    left: 50%;
+
     /*text-align: center;*/
 }
 #quiz2Q{
     background-color: lightblue;
-    float: left;
-    position: relative;
-    left: -50%;
+
     /*text-align: center;*/
 }

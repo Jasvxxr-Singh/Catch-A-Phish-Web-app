@@ -12,14 +12,14 @@ q1 = Question2(1,
                "statement3",
                "statement4",
                4)
-q2 = Question2(1,
+q2 = Question2(2,
                "Which one of the statements is correct?",
                "statement1",
                "statement2",
                "statement3",
                "statement4",
                4)
-q3 = Question2(1,
+q3 = Question2(3,
                "Which one of the statements is correct?",
                "statement1",
                "statement2",
@@ -75,7 +75,7 @@ def submit2():
         correct_option = question.get_correct_option()
         if selected_option == correct_option:
             correct_count += 1
-        correct_count = str(correct_count)
+    correct_count = str(correct_count)
 
     return render_template(
         # how we want to implement this second part of the quiz

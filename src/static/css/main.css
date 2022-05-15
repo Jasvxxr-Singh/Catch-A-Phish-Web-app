@@ -331,6 +331,8 @@ body {
     justify-content: flex-start;  
 }
 
+
+
 #sender-icon img {
     display: inline-block;
     height: 40px;
@@ -341,6 +343,7 @@ body {
     padding: 5px;
     border-radius: 5px;
     background-color: #9eadcb;
+
 }
 
 #inactive-button {
@@ -467,4 +470,22 @@ body {
 }
 .the-most img {
     max-width: 100%;
+}
+
+.quiz2Content{
+    background-color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 40px;
+    float: left;
+    position: relative;
+    left: 50%;
+    /*text-align: center;*/
+}
+#quiz2Q{
+    background-color: lightblue;
+    float: left;
+    position: relative;
+    left: -50%;
+    /*text-align: center;*/
 }

@@ -15,16 +15,19 @@ p {
 </style>
 </head>
 <body>
-    <form action="/submitquiz" method="post">
+    <form action="/submitquiz2" method="post">
         <div class="quiz2Content">
     {% for question in questionlist%}
+            <div id="quiz2Q">
         <h4>
             {{question.getQuestion()}} <br>
+            </h4>
+            </div>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1()}}"> {{question.getOption1()}} <br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2()}}"> {{question.getOption2()}}<br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption3()}}"> {{question.getOption3()}}<br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption4()}}"> {{question.getOption4()}}<br>
-        </h4>
+
             {% endfor %}
           <br><br>
                 <input type="submit" name="submitform" value="Submit">

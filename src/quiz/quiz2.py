@@ -82,6 +82,7 @@ def submit2():
         correct_count = str(correct_count)
 
     return render_template(
-        'quiz/result.html',
+        # how we want to implement this second part of the quiz
+        'quiz/result2.html',
         quiz_result=correct_count
     )

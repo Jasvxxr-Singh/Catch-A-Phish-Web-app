@@ -472,16 +472,62 @@ body {
     max-width: 100%;
 }
 
+/* quiz 2 related css are here */
+
 .quiz2Content{
-    background-color: lightgrey;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 120%;
+    background-color: #FFEBCD;
+    font-family: sans-serif;
     color: black;
     padding: 40px;
 
-    /*text-align: center;*/
+
 }
+
+
 #quiz2Q{
-    background-color: lightblue;
+    font-weight: bold;
+    font-size: 120%;
+    font-family: font-family: "Gill Sans", sans-serif;
 
     /*text-align: center;*/
 }
+/* resolutions html related css are here */
+
+.solution{
+    background-color: #FAEBD7;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 40px;
+}
+
+#reasons{
+    background-color: #8FBC8F;
+    /*text-align: center;*/
+}
+
+#solutionH{
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#solutionQ{
+    font-weight: bold;
+}
+/* result2 html related css are here */
+
+#qresult{
+    font-weight: bold;
+    font-size: 200%;
+}
+.result2{
+    background-color: #FAEBD7;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 40px;
+}
+
+
+
+

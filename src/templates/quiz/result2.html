@@ -1,4 +1,25 @@
 {% extends 'layout.html' %} {% block content %}
-<p> The result of the quiz is {{quiz_result}}</p>
+<div class="result2">
+    {% if quiz_result != "3" %}
+<div id="qresult">
+<p> The result of the quiz is {{quiz_result}}points</p> <br>
+</div>
+    <p>Here are the questions you have got it wrong</p>
+    <div id="wrongQ">
+    {% for question in wrong_question%}
+    <p>- question {{question.getQ_id()}} </p>
+        <br>
+    </div>
 
+{% endfor %}
+    {% else %}
+    <p>You did a fantastic job! </p>
+{% endif %}
+    <br><br>
+    <a class="ui huge primary button" href="{{ url_for('quiz_bp2.quiz2') }}">Play Again</a>
+    {% if quiz_result != "3" %}
+    <a class="ui huge primary button" href="{{ url_for('solution_bp.solution') }}">check solutions</a>
+{% endif %}
+
+</div>
 {% endblock %}

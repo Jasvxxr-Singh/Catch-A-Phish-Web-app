@@ -69,17 +69,20 @@ def create_app(test_config=None):
             # Quiz 1
         app.register_blueprint(quiz.quiz_blueprint)
         app.register_blueprint(quiz.submit_blueprint)
-        app.register_blueprint(quiz.resolutions_blueprint)
+        #app.register_blueprint(quiz.resolutions_blueprint)
         app.register_blueprint(quiz.leaderboard_blueprint)
             # Quiz 2
         app.register_blueprint(quiz2.quiz_blueprint2)
         app.register_blueprint(quiz2.submit_blueprint2)
+        app.register_blueprint(quiz2.solution_blueprint)
             # Modules page
         app.register_blueprint(modules.modules_blueprint)
 
         from .quiz import quiz2
         app.register_blueprint(quiz2.quiz_blueprint2)
         app.register_blueprint(quiz2.submit_blueprint2)
+        app.register_blueprint(quiz2.solution_blueprint)
+
 
         from .authentication import authentication
         app.register_blueprint(authentication.authentication_blueprint)

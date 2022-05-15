@@ -125,7 +125,7 @@ class Question2:
 
 class Question2:
     def __init__(self, q_id: int, question: str, option1: str, option2: str, option3: str, option4: str,
-                 correctoption: int):
+                 correctoption: int, reason: str):
         self.q_id = q_id
         self.question = question
         self.option1 = option1
@@ -133,6 +133,7 @@ class Question2:
         self.option3 = option3
         self.option4 = option4
         self.correctoption = correctoption
+        self.reason = reason
 
     def getQ_id(self):
         return self.q_id
@@ -162,3 +163,5 @@ class Question2:
         if self.correctoption == 4:
             return self.option4
 
+    def get_reason(self):
+        return self.reason

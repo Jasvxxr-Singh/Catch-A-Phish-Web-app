@@ -7,18 +7,19 @@
         <div class="quiz2Content">
     {% for question in questionlist%}
             <div id="quiz2Q">
-        <h4>
-            {{question.getQuestion()}} <br>
-            </h4>
+        <p>
+            {{question.getQ_id()}}.{{question.getQuestion()}} <br>
+            </p>
             </div>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption1()}}"> {{question.getOption1()}} <br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption2()}}"> {{question.getOption2()}}<br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption3()}}"> {{question.getOption3()}}<br>
         <input type="radio" name="{{question.getQ_id()}}" value="{{question.getOption4()}}"> {{question.getOption4()}}<br>
+        <br>
+        <br>
+    {% endfor %}
 
-            {% endfor %}
-          <br><br>
-                <input type="submit" name="submitform" value="Submit">
+            <input type="submit" name="submitform" value="Submit">
         </div>
 
     </form>

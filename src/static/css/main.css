@@ -483,6 +483,9 @@ body {
 
 
 }
+p.question {
+  font-weight: bold;
+}
 
 
 #quiz2Q{
@@ -525,7 +528,7 @@ body {
     background-color: #FAEBD7;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    padding: 40px;
+
 }
 
 

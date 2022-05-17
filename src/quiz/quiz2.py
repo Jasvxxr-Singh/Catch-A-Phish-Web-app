@@ -29,18 +29,15 @@ q3 = Question2(3,
                "statement4",
                4,
                "this is clearly a phish attack")
-# also if u have added more questions, make sure to change the value in result2.html as well
-qlist = [q1, q2, q3]  # the list stores all the Questions
-wrongQ = []
 
-display_wrongQ = []
+qlist = [q1, q2, q3]  # the list stores all the Questions
 
 quiz_blueprint2 = Blueprint('quiz_bp2', __name__)
 
 
 @quiz_blueprint2.route('/quiz2', methods=['GET', 'POST'])
 def quiz2():
-    """
+
     # implements pagination or do we really need it?
     total_number_of_questions = len(qlist)
     question_chunks = utilities.get_chunks(qlist, 1)
@@ -60,11 +57,22 @@ def quiz2():
         next_page = len(question_chunks) - 1
     else:
         next_page = page_number + 1
-"""
-    wrongQ.clear()  # clear the wrongQ list if user decides to play it again, otherwise the prev wrong questions will still be there.
+
+    question = qlist[page_number]
+    #question = utilities.get_question(page_number + 1)
+    score = utilities.get_user_score(session['user_name'])
+
     return render_template(
         'quiz/module2.html',
         questionlist=qlist,
+        question=question,
+        next_page=next_page,
+        prev_page=previous_page,
+        total_questions=total_number_of_questions,
+        current_page=page_number,
+        q_list=question_chunks[page_number],
+        num_pages=len(question_chunks),
+        score=score,
 
     )
 
@@ -74,30 +82,85 @@ submit_blueprint2 = Blueprint("submit_bp2", __name__)
 
 @submit_blueprint2.route('/submitquiz2', methods=['POST', 'GET'])
 def submit2():
-    correct_count = 0
+    total_number_of_questions = len(qlist)
+    questions_chunks = utilities.get_chunks(qlist, 1)
+    page_number = request.args.get("page_number")
 
-    for question in qlist:
-        question_id = str(question.getQ_id())
-        selected_option = request.form.get(question_id)
-        correct_option = question.get_correct_option()
-        if selected_option == correct_option:
-            correct_count += 1
-        else:
-            wrongQ.append(question)  # appended the object
-    correct_count = str(correct_count)
-    for ele in wrongQ:
-        q_id = ele.getQ_id()
-        display_wrongQ.append(str(q_id))
+    if page_number is None:
+        page_number = 0
+
+    page_number = int(page_number)
+    if page_number == 0:
+        previous_page = 0
+    else:
+        previous_page = page_number - 1
+
+    if page_number == len(questions_chunks) - 1:
+        next_page = len(questions_chunks) - 1
+    else:
+        next_page = page_number + 1
+
+    #question = utilities.get_question(page_number + 1)
+    question = qlist[page_number]
+
+    score = utilities.get_user_score(session['user_name'])
+
+    num_emails_left, num_spam, num_legit = (total_number_of_questions - page_number), 5, 5
+    correct = False
+    selected_option = request.values.get("option")
+    #question_id = str(question.getQ_id())
+    #selected_option = request.form.get(question_id)
+
+    # Find if question is legit or not depending on T/F value of is_legitimate property
+    '''
+    if question.is_legitimate:
+        correct_option = 1
+    else:
+        correct_option = 0
+    '''
+    correct_option = question.get_correct_option()
+    #print("selected :", selected_option)
+    #print("correct :", correct_option)
+
+    if int(selected_option) == int(correct_option):
+        correct = True
+    else:
+        correct = False
+
+    #print(correct)
+
+    #answer = "Illegitimate" if correct_option == 0 else "Legitimate"
+
+    # Update user score
+    user_name = session['user_name']
+    utilities.update_user_score(user_name, 1)
+
 
     return render_template(
-        # how we want to implement this second part of the quiz
-        'quiz/result2.html',
-        quiz_result=correct_count,
-        wrong_question=wrongQ,  # stores the object(wrong question) in the list
-        # display_wrongQ=display_wrongQ  # store the Qid of the wrong question
+        'quiz/module2.html',
+        results=True,
+        quiz_result=correct,
+        correct_option=correct_option,
 
+        question=question,
+        next_page=next_page,
+        prev_page=previous_page,
+        total_questions=total_number_of_questions,
+        current_page=page_number,
+        q_list=questions_chunks[page_number],
+        num_pages=len(questions_chunks),
+        num_emails_left=num_emails_left, num_spam=num_spam, num_legit=num_legit, score=score
     )
 
+resolutions_blueprint2 = Blueprint('resolutions_bp2', __name__)
+
+
+@resolutions_blueprint2.route('/resolutions2', methods=['GET'])
+def results2():
+    return render_template(
+        'quiz/resolutions2.html'
+
+    )
 
 solution_blueprint = Blueprint("solution_bp", __name__)
 

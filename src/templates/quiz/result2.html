@@ -1,30 +1,8 @@
-{% extends 'layout.html' %} {% block content %}
-<div class="result2">
-    {% if quiz_result != "3" %}
-    <div id="qresult">
-        <p> The result of the quiz is {{quiz_result}}points</p> <br>
-    </div>
-    <p>Here are the questions you have got it wrong</p>
+<p> The result of the quiz is {{score}}</p>
+{% if current_page == total_questions - 1 %}
+    <a class="ui button" href="{{ url_for('home_bp.home')}}">Exit</a>
+    <a class="ui button" href="{{ url_for('leaderboard_bp.leaderboard')}}">Leaderboard</a>
+{% else %}
+    <a class="ui button" href="{{ url_for('quiz_bp2.quiz2', page_number = next_page) }}">Next question</a>
+{% endif %}
 
-    <div id="wrongQ">
-        {% for question in wrong_question%}
-        <p class="question">- question {{question.getQ_id()}} </p>
-
-
-    </div>
-
-
-        {% endfor %}
-        <a class="ui huge primary button" href="{{ url_for('solution_bp.solution') }}">check solutions</a>
-        <a class="ui huge primary button" href="{{ url_for('quiz_bp2.quiz2') }}">Play Again</a>
-    {% else %}
-        <p class="question">You did a fantastic job! All the questions are correct!</p>
-        <a class="ui huge primary button" href="{{ url_for('quiz_bp2.quiz2') }}">Play Again</a>
-        <a class="ui huge primary button" href="{{ url_for('modules_bp.modules') }}">Exit</a>
-
-    {% endif %}
-    <br><br>
-
-
-</div>
-{% endblock %}

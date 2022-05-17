@@ -193,14 +193,7 @@ class Question2:
         return self.option4
 
     def get_correct_option(self):
-        if self.correctoption == 1:
-            return self.option1
-        if self.correctoption == 2:
-            return self.option2
-        if self.correctoption == 3:
-            return self.option3
-        if self.correctoption == 4:
-            return self.option4
+        return self.correctoption
 
     def get_reason(self):
         return self.reason

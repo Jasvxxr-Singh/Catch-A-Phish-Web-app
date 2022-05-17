@@ -21,7 +21,8 @@ questions_table = Table(
     Column('email_subject', String(255), unique=False, nullable=False), 
     Column('email_content', String(255), unique=False, nullable=False), 
     Column('is_legitimate', BOOLEAN), 
-    Column('reason', String(255))
+    Column('reason', String(255)), 
+    Column('tag', String(255)),
 )
 
 # MAPPER
@@ -39,4 +40,5 @@ def map_model_to_tables():
         '_Question__email_content': questions_table.c.email_content, 
         '_Question__is_legitimate': questions_table.c.is_legitimate, 
         '_Question__reason': questions_table.c.reason,
+        '_Question__tag': questions_table.c.tag,
     })

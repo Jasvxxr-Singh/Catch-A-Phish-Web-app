@@ -22,6 +22,11 @@ def create_app(test_config=None):
 
     data_path = Path('src') / 'adapters' / 'data'
 
+    # POPULATE MEMORY REPO WITH TEST DATA
+    if test_config is not None:
+        app.config.from_mapping(test_config)
+        data_path = app.config['TEST_DATA_PATH']
+
     if app.config['REPOSITORY'] == 'database': 
         database_uri = app.config['SQLALCHEMY_DATABASE_URI']
         database_echo = app.config['SQLALCHEMY_ECHO']
@@ -50,6 +55,7 @@ def create_app(test_config=None):
         else:
             map_model_to_tables()
     
+    # POPULATE MEMORY REPO WITH DATA
     elif app.config['REPOSITORY'] == 'memory': # need 'memory' option for testing purposes
         repo.repo_instance = MemoryRepository()
         database_mode = False

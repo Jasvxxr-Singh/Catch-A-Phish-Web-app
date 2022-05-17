@@ -45,3 +45,7 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def chunks(self, data_array, per_page: int):
         raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_tag(self, question_id):
+        raise NotImplementedError

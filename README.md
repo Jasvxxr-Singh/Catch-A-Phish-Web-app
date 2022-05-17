@@ -44,3 +44,5 @@ Alternatively, from a terminal in the root folder of the project, you can also c
 ````shell
 $ python -m pytest tests
 ````
+
+* Note that for some computers you may need to use python3

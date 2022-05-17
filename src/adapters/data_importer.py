@@ -34,6 +34,7 @@ def load_questions(data_path: Path, repo: AbstractRepository):
             email_subject = data_row[2], 
             email_content = data_row[3], 
             is_legitimate = bool(data_row[4]), 
-            reason = data_row[5]
+            reason = data_row[5], 
+            tag = data_row[6]
         )
         repo.add_question(question)

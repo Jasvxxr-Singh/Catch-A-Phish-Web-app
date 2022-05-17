@@ -112,3 +112,7 @@ class SqlAlchemyRepository(AbstractRepository):
                 yield data_array[i: i + per_page]
         else:
             yield data_array
+
+    def get_tag(self, question_id):
+        question = self.get_question(question_id)
+        return question.tag

@@ -31,10 +31,26 @@ class User:
     def add_score(self, score: int):
         self.__score += score
 
+    def __repr__(self):
+        return f'<User {self.user_name}>'
+
+    def __repr__(self):
+        return f'<User {self.user_name}>'
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        return other.user_name == self.user_name
+
+    def __lt__(self, other):
+        return self.user_name < other.user_name
+
+    def __hash__(self):
+        return hash(self.user_name)
+
 
 class Question:
-    def __init__(self, q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool,
-                 reason: str):
+    def __init__(self, q_id: int, sender_address: str, email_subject: str, email_content: str, is_legitimate: bool, reason: str, tag: str):
         if q_id == "" or not isinstance(q_id, int):
             self.__q_id = None
         else:
@@ -65,6 +81,11 @@ class Question:
         else:
             self.__reason = reason.strip()
 
+        if tag=="" or not isinstance(tag, str) or tag=="legitimate":
+            self.__tag = "legitimate"
+        else:
+            self.__tag = tag
+
     @property
     def question_id(self):
         return self.__q_id
@@ -88,6 +109,24 @@ class Question:
     @property
     def reason(self):
         return self.__reason
+
+    @property
+    def tag(self):
+        return self.__tag
+
+    def __repr__(self):
+        return f'<Question id: {self.question_id}>'
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            return False
+        return self.question_id == other.question_id
+
+    def __lt__(self, other):
+        return self.question_id < other.question_id
+
+    def __hash__(self):
+        return hash(self.question_id)
 
 
 '''

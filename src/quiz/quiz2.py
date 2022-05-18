@@ -132,8 +132,7 @@ def submit2():
     #answer = "Illegitimate" if correct_option == 0 else "Legitimate"
 
     # Update user score
-    user_name = session['user_name']
-    utilities.update_user_score(user_name, 1)
+    if correct: utilities.update_user_score(session['user_name'], 1)
 
 
     return render_template(

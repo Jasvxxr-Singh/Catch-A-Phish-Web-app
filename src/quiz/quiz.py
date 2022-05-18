@@ -57,18 +57,18 @@ def submit():
 
     if page_number is None: page_number = 0
     page_number = int(page_number)
-    if page_number == 0:
+
+    if page_number == 0: 
         previous_page = 0
-    else:
+    else: 
         previous_page = page_number - 1
 
-    if page_number == len(questions_chunks) - 1:
+    if page_number == len(questions_chunks) - 1: 
         next_page = len(questions_chunks) - 1
-    else:
+    else: 
         next_page = page_number + 1
 
     question = utilities.get_question(page_number + 1)
-
     score = utilities.get_user_score(session['user_name'])
 
     num_emails_left, num_spam, num_legit = (total_number_of_questions - page_number), 5, 5
@@ -76,21 +76,20 @@ def submit():
     selected_option = request.values.get("option")
 
     # Find if question is legit or not depending on T/F value of is_legitimate property
-    if question.is_legitimate:
+    if question.is_legitimate: 
         correct_option = 1
-    else:
+    else: 
         correct_option = 0
 
-    if int(selected_option) == int(correct_option):
+    if int(selected_option) == int(correct_option): 
         correct = True
-    else:
+    else: 
         correct = False
 
     answer = "Illegitimate" if correct_option == 0 else "Legitimate"
 
     # Update user score
-    user_name = session['user_name']
-    utilities.update_user_score(user_name, 1)
+    if correct: utilities.update_user_score(session['user_name'], 1)
 
     return render_template(
         'quiz/module1.html',

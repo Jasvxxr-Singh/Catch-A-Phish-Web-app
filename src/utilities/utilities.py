@@ -29,5 +29,6 @@ def update_user_score(user_name, score: int):
 def get_leaderboard():
     return services.get_leaderboard(repo.repo_instance)
 
+
 def get_10_questions():
     return services.get_10_questions(repo.repo_instance)

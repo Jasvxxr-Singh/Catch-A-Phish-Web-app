@@ -354,6 +354,7 @@ body {
 /* pagination styles */
 .pagination {
     width: 100%;
+    background-color: #4CAF50;
 }
 
 
@@ -503,6 +504,7 @@ p.question {
     color: black;
     padding: 40px;
 }
+
 
 #reasons{
     background-color: #8FBC8F;

@@ -9,35 +9,30 @@
     <form action="/submitquiz2" method="post">
         <div class="quiz2Content">
 
-            <div id="quiz2Q">
-        <h4>
-            {{question.getQuestion()}} <br>
-            </h4>
-            </div>
-            Option 1: {{question.getOption1()}}<br>
-            Option 2: {{question.getOption2()}}<br>
-            Option 3: {{question.getOption3()}}<br>
-            Option 4: {{question.getOption4()}}<br>
-
-
           <br><br>
                 {% if not results %}
                         <div class="extra content">
+                            <div id="quiz2Q">
+                        <h4>
+                            {{question.getQ_id()}}. {{question.getQuestion()}} <br>
+                        </h4>
+                        </div>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 1) }}">
-                                <input class="ui button" value="Submit 1">
+                                <input class="ui button" value="Submit 1"> {{question.getOption1()}}
                             </a>
+                            <br>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 2) }}">
-                                <input class="ui button" value="Submit 2">
+                                <input class="ui button" value="Submit 2"> {{question.getOption2()}}<br>
                             </a>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 3) }}">
-                                <input class="ui button" value="Submit 3">
+                                <input class="ui button" value="Submit 3">{{question.getOption3()}}<br>
                             </a>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 4) }}">
-                                <input class="ui button" value="Submit 4">
+                                <input class="ui button" value="Submit 4">{{question.getOption4()}}<br>
                             </a>
 
                         {% elif results %}
@@ -48,7 +43,7 @@
                         </div>
         </div>
 
-        <div class="quiz-pagination-footer">
+        <div class="quiz-pagination-footer2">
             {% include 'quiz/pagination2.html' %}
         </div>
 

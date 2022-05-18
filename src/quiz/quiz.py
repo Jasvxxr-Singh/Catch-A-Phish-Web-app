@@ -89,7 +89,8 @@ def submit():
     answer = "Illegitimate" if correct_option == 0 else "Legitimate"
 
     # Update user score
-    if correct: utilities.update_user_score(session['user_name'], 1)
+    if correct:
+        utilities.update_user_score(session['user_name'], 1)
 
     return render_template(
         'quiz/module1.html',

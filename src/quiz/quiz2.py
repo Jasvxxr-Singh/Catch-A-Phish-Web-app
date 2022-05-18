@@ -31,6 +31,8 @@ q3 = Question2(3,
                "this is clearly a phish attack")
 
 qlist = [q1, q2, q3]  # the list stores all the Questions
+wrongQ = []
+
 
 quiz_blueprint2 = Blueprint('quiz_bp2', __name__)
 
@@ -59,7 +61,7 @@ def quiz2():
         next_page = page_number + 1
 
     question = qlist[page_number]
-    #question = utilities.get_question(page_number + 1)
+    # question = utilities.get_question(page_number + 1)
     score = utilities.get_user_score(session['user_name'])
 
     return render_template(
@@ -82,6 +84,7 @@ submit_blueprint2 = Blueprint("submit_bp2", __name__)
 
 @submit_blueprint2.route('/submitquiz2', methods=['POST', 'GET'])
 def submit2():
+
     total_number_of_questions = len(qlist)
     questions_chunks = utilities.get_chunks(qlist, 1)
     page_number = request.args.get("page_number")
@@ -100,40 +103,23 @@ def submit2():
     else:
         next_page = page_number + 1
 
-    #question = utilities.get_question(page_number + 1)
-    question = qlist[page_number]
+    question = qlist[page_number]  # return an object!
 
     score = utilities.get_user_score(session['user_name'])
 
     num_emails_left, num_spam, num_legit = (total_number_of_questions - page_number), 5, 5
     correct = False
     selected_option = request.values.get("option")
-    #question_id = str(question.getQ_id())
-    #selected_option = request.form.get(question_id)
+    correct_option = str(question.get_correct_option())
 
-    # Find if question is legit or not depending on T/F value of is_legitimate property
-    '''
-    if question.is_legitimate:
-        correct_option = 1
-    else:
-        correct_option = 0
-    '''
-    correct_option = question.get_correct_option()
-    #print("selected :", selected_option)
-    #print("correct :", correct_option)
-
-    if int(selected_option) == int(correct_option):
+    if selected_option == correct_option:
         correct = True
     else:
         correct = False
-
-    #print(correct)
-
-    #answer = "Illegitimate" if correct_option == 0 else "Legitimate"
+        wrongQ.append(question)
 
     # Update user score
     if correct: utilities.update_user_score(session['user_name'], 1)
-
 
     return render_template(
         'quiz/module2.html',
@@ -151,6 +137,7 @@ def submit2():
         num_emails_left=num_emails_left, num_spam=num_spam, num_legit=num_legit, score=score
     )
 
+
 resolutions_blueprint2 = Blueprint('resolutions_bp2', __name__)
 
 
@@ -160,6 +147,7 @@ def results2():
         'quiz/resolutions2.html'
 
     )
+
 
 solution_blueprint = Blueprint("solution_bp", __name__)
 

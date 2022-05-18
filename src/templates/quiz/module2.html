@@ -3,6 +3,30 @@
 <html>
 
 <head>
+    <style>
+  input[type=button]{
+  background-color: #F5FFFA;
+  border: none;
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:60px 60px 60px 60px
+
+}
+input[type=button]:hover {
+  background-color: #87CEFA;
+  border: none;
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:60px 60px 60px 60px
+
+}
+</style>
 
 </head>
 <body>
@@ -11,39 +35,62 @@
 
           <br><br>
                 {% if not results %}
-                        <div class="extra content">
-                            <div id="quiz2Q">
-                        <h4>
-                            {{question.getQ_id()}}. {{question.getQuestion()}} <br>
-                        </h4>
-                        </div>
 
+                            <div id="quiz2Q">
+
+                                <p>{{question.getQ_id()}}. {{question.getQuestion()}}</p> <br>
+
+                            </div>
+            <br>
+            <br>
+                            <div id="quizOption">
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 1) }}">
-                                <input class="ui button" value="Submit 1"> {{question.getOption1()}}
+                                <input class="submit" type="button" value="1">
                             </a>
+                            {{question.getOption1()}}
                             <br>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 2) }}">
-                                <input class="ui button" value="Submit 2"> {{question.getOption2()}}<br>
+                                <input class="submit" type="button" value="2">
                             </a>
+                            {{question.getOption2()}}<br>
 
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 3) }}">
-                                <input class="ui button" value="Submit 3">{{question.getOption3()}}<br>
+                                <input class="submit" type="button" value="3">
                             </a>
-
+                            {{question.getOption3()}}<br>
                             <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 4) }}">
-                                <input class="ui button" value="Submit 4">{{question.getOption4()}}<br>
+                                <input class="submit" type="button" value=4>
                             </a>
+                            {{question.getOption4()}}<br>
+                            </div>
 
                         {% elif results %}
-                        <div id="quiz-results">
+            <br>
+            <br>
+                        <div id="result2">
                             {% include 'quiz/result2.html' %}
                         </div>
                         {% endif %}
-                        </div>
-        </div>
 
-        <div class="quiz-pagination-footer2">
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        <div class="quiz-pagination-footer">
             {% include 'quiz/pagination2.html' %}
         </div>
 

@@ -486,13 +486,30 @@ body {
 }
 p.question {
   font-weight: bold;
+  font-size: 120%;
 }
 
+input[type=submit] {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#quizOption{
+
+    font-size: 120%;
+    font-family: Segoe UI;
+
+    /*text-align: center;*/
+}
 
 #quiz2Q{
     font-weight: bold;
-    font-size: 120%;
-    font-family: font-family: "Gill Sans", sans-serif;
+    font-size: 160%;
+    font-family: Trebuchet MS;
 
     /*text-align: center;*/
 }
@@ -507,7 +524,7 @@ p.question {
 
 
 #reasons{
-    background-color: #8FBC8F;
+    background-color: #DEB887;
     /*text-align: center;*/
 }
 
@@ -526,10 +543,12 @@ p.question {
     font-weight: bold;
     font-size: 200%;
 }
-.result2{
-    background-color: #FAEBD7;
+#result2{
+    background-color: #DEB887;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    padding: 5px;
+    border-radius: 5px;
 
 }
 

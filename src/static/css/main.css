@@ -313,6 +313,12 @@ body {
     background-color: #41506b;
 }
 
+/* modules page */
+#modules {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
 /* user account page */
 #account {
     margin-top: 10%;

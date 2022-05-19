@@ -91,7 +91,10 @@ def submit():
     # Update user score
     if correct:
         utilities.update_user_score(session['user_name'], 1)
-
+    else: 
+        question_tag = utilities.get_tag(question.tag)
+        utilities.update_user_tags(session['user_name'], question_tag)
+  
     return render_template(
         'quiz/module1.html',
         results=True,

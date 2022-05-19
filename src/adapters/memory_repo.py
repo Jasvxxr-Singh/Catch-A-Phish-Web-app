@@ -25,6 +25,14 @@ class MemoryRepository(AbstractRepository):
     def get_all_users(self):
         return self.__users
 
+    def get_user_tags(self, user_name: str):
+        user = self.get_user(user_name)
+        return user.frequently_incorrect
+    
+    def add_frequently_incorrect(self, user_name: str, tag: str):
+        user: User = self.get_user(user_name)
+        user.add_frequently_incorrect(self, tag)
+
     # Question objects
     def add_question(self, question: Question):
         self.__questions.append(question)

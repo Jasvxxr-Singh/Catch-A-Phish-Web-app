@@ -1,6 +1,6 @@
 class User:
 
-    def __init__(self, user_name: str, password: str, score: int = 0):
+    def __init__(self, user_name: str, password: str, score: int = 0, frequently_incorrect: str = ""):
         if user_name == "" or not isinstance(user_name, str):
             self.__user_name = None
         else:
@@ -16,6 +16,11 @@ class User:
         else:
             self.__score = score
 
+        if frequently_incorrect == None or not isinstance(frequently_incorrect, str):
+            self.__frequently_incorrect = ""
+        else:
+            self.__frequently_incorrect = frequently_incorrect
+
     @property
     def user_name(self) -> str:
         return self.__user_name
@@ -28,9 +33,17 @@ class User:
     def score(self) -> int:
         return self.__score
 
+    @property
+    def frequently_incorrect(self) -> str:
+        return self.__frequently_incorrect
+
     def add_score(self, score: int):
         self.__score += score
-
+    
+    def add_frequently_incorrect(self, tag: str):
+        if tag not in self.__frequently_incorrect:
+            self.__frequently_incorrect = self.__frequently_incorrect + tag
+        
     def __repr__(self):
         return f'<User {self.user_name}>'
 

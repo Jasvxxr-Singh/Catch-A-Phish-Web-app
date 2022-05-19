@@ -27,6 +27,14 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get_all_users(self):
         raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_user_tags(self, user_name: str):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def add_frequently_incorrect(self, user_name: str, tag: str):
+        raise NotImplementedError
         
 
     # Question objects

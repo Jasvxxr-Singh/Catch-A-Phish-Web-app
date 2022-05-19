@@ -11,7 +11,8 @@ users_table = Table(
     Column('id', Integer, primary_key=True, autoincrement=True),
     Column('user_name', String(255), unique=True, nullable=False),
     Column('password', String(255), nullable=False), 
-    Column('score', Integer)
+    Column('score', Integer), 
+    Column('frequently_incorrect', String(225)),
 )
 
 questions_table = Table(
@@ -31,6 +32,7 @@ def map_model_to_tables():
         '_User__user_name': users_table.c.user_name,
         '_User__password': users_table.c.password,
         '_User__score': users_table.c.score,
+        '_User__frequently_incorrect': users_table.c.frequently_incorrect,
     })
 
     mapper(model.Question, questions_table, properties={

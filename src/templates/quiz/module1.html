@@ -11,12 +11,16 @@
                             <span class="date">Is this email a phish or a genuine voucher?</span>
                         </div>
 
-                        <br><br>
+                        <br>
 
                         <div id="quiz-header">
                             {% include 'quiz/header.html' %}
                         </div>
 
+                        <br>
+                        <div class="header">
+                            {{ question.email_subject }}
+                        </div>
                         <br>
 
                         <div id="quiz-email">
@@ -33,12 +37,19 @@
                             <br>
 
                             <div class="description">
-                                {{ question.email_content }}
+                                {% for list in question.email_content_list_of_lists %}
+                                    {{ list.replace("\\n", " ").
+                                    replace("[first_name]", session['user_name']).
+
+                                    replace("[last_name]", "").
+                                    replace("@session['user_name']", session['user_name']+"@mail.com").
+                                    replace("[insert py dateTime.now]", ('14-05-22.'))
+                                    }}
+                                {% endfor %}
                             </div>
                         </div>
 
-
-                        <br><br>
+                        <br>
 
                         {% if not results %}
                         <div class="extra content">

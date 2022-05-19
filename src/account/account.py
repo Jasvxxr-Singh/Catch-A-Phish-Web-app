@@ -23,10 +23,14 @@ def view_account():
     user_name = session['user_name']
     score = utilities.get_user_score(user_name)
     leaderboard = utilities.get_leaderboard()
+    user_tags = utilities.get_user_tags(user_name)
+    suggestions = utilities.get_suggestions(user_tags)
    
     return render_template(
         'account/account.html',
         score = score, 
-        leaderboard = leaderboard
+        leaderboard = leaderboard,
+        tag_length = len(user_tags),
+        suggestions = suggestions,
     )
 

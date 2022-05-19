@@ -44,3 +44,12 @@ def get_10_questions(repo: AbstractRepository):
     for number in random_sample:
         ten_questions.append(all_questions[number - 1])
     return ten_questions
+
+def get_user(repo: AbstractRepository, user_name: str):
+    return repo.get_user(user_name)
+
+def update_user_tags(repo: AbstractRepository, user_name: str, tag: str):
+    repo.add_frequently_incorrect(user_name, tag)
+
+def get_user_tags(repo: AbstractRepository, user_name: str):
+    return repo.get_user_tags(user_name)

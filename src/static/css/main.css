@@ -315,8 +315,17 @@ body {
 
 /* user account page */
 #account {
-    margin-top: 20%;
+    margin-top: 10%;
     margin-bottom: 20%;
+}
+
+#account #user-suggestions #suggestions-title {
+    color: #F0E43C;
+}
+
+#account #user-suggestions #suggestion-text, #suggestion-head {
+    width: 60%;
+    text-align: justify;
 }
 
 /* quiz pages */

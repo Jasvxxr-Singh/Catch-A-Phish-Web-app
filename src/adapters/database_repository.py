@@ -88,6 +88,20 @@ class SqlAlchemyRepository(AbstractRepository):
         users = self._session_cm.session.query(User).all()
         return users
 
+    def get_user_tags(self, user_name: str):
+        user = self.get_user(user_name)
+        return user.frequently_incorrect
+    
+    def add_frequently_incorrect(self, user_name: str, tag: str):
+        user = None
+        with self._session_cm as scm:
+            try:
+                user: User = self._session_cm.session.query(User).filter(User._User__user_name == user_name).one()
+                user.add_frequently_incorrect(tag)
+                scm.commit()
+            except NoResultFound:
+                pass
+
     # just to satisfy abstract repository
     def add_question(self, question: Question):
         with self._session_cm as scm:

@@ -116,6 +116,17 @@ class Question:
         return self.__email_content
 
     @property
+    def email_content_list_of_lists(self):
+        list_of_lists = self.email_content.split("\n")
+
+        for x in range(len(list_of_lists)):
+            if "[user_name]" in list_of_lists[x]:
+                index = list_of_lists[x].find("[user_name]")
+                list_of_lists[x] = list_of_lists[x][:index] + str("session['user_name']") + list_of_lists[x][index+1+len("[user_name]"):]
+
+        return list_of_lists
+        
+    @property
     def is_legitimate(self):
         return self.__is_legitimate
 

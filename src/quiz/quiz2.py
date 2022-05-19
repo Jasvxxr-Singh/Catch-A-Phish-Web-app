@@ -62,7 +62,7 @@ q7 = Question2(7,
                4,
                "")
 
-qlist = [q1, q2, q3, q4, q5, q6]  # the list stores all the Questions
+qlist = [q1, q2, q3, q4, q5, q6, q7]  # the list stores all the Questions
 wrongQ = []
 
 

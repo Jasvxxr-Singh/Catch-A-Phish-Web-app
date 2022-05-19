@@ -7,30 +7,62 @@ from src.domain.model import Question2
 
 q1 = Question2(1,
                "Which one of the statements is correct?",
-               "If you get an email that looks like it’s from someone you know you can click on any links as long as you have a spam blocker and anti-virus protection.?",
-               " You can trust an email really comes from a client if it uses the client’s logo and contains at least one fact about the client that you know to be true.",
-               "statement3",
-               "statement4",
-               4,
-               "this is clearly a phish attack")
+               "If people are distracted by a hurricane or a flu pandemic, they might be less likely to read emails carefully.",
+               "Phishers often take advantage of current events, such as natural disasters, health scares, or political elections, and send messages with those themes to play on people's fears.",
+               "Phishing emails reach more people if they are worried about the weather.",
+               "If people go without power due to a storm or other natural disaster, they will be excited about communication being restored and they will respond to the emails they receive once power is back.",
+               2,
+               "")
 q2 = Question2(2,
-               "Which one of the statements is correct?",
-               "statement1",
-               "statement2",
-               "statement3",
-               "statement4",
-               4,
-               "this is clearly a phish attack")
+               "What is a phishing attack called when it is designed to look like an email from a user's superior within the organization?",
+               "Whale phishing.",
+               "Spear phishing.",
+               "Deceptive phishing.",
+               "In-session phishing",
+               2,
+               "")
 q3 = Question2(3,
                "Which one of the statements is correct?",
-               "statement1",
-               "statement2",
-               "statement3",
-               "statement4",
+               "A spoof is another name for an illegitimate website.",
+               "A whaling attack is highly personalized to the recipient and that builds trust by using personal details often gleaned from social media accounts and other sources.",
+               "Disconnecting from the internet is an effective method of reversing a phishing attack because perpetrators no longer have access to your network.",
+               "If you recieve a phishing email from someone you know, you shouldn't try to contact them via some alternative means of communication(phone or text message) to confirm it.",
+               1,
+               "")
+q4 = Question2(4,
+               "Which one of the statements is correct?",
+               "Phishing emails tend to grow more sophisticated each day, thus we must all take precaution upon viewing them",
+               "Most firms have several security precautions in place, but they don't control individual users' non-corporate devices.",
+               "You most likely receive phishing emails on your personal email accounts as well, so it pays to be aware.",
+               "All of the above.",
                4,
-               "this is clearly a phish attack")
+               "")
+q5 = Question2(5,
+               "You have been sent a phishing email. What should you do?",
+               "Click on the link to claim your million dollars and quit your job.",
+               "Ignore the email and delete it.",
+               "Let the IT department know that you have been sent a phishing email.",
+               "All of the above",
+               2,
+               "")
+q6 = Question2(6,
+               "What are the possible outcomes if you have clicked on a phishing link?",
+               "The link could potentially download and install malware which can cause damage to the company.",
+               "The attacker will be able to gain access to sensitive company information.",
+               "The attacker sends you the iphone he/she promised.",
+               "1 and 2",
+               4,
+               "")
+q7 = Question2(7,
+               "Which of the following practices should IT employ for an email phishing test?",
+               "Include executives and management.",
+               "Mimic the tactics of typical phishing attacks.",
+               "Extract as much user data as possible.",
+               "All of the above",
+               4,
+               "")
 
-qlist = [q1, q2, q3]  # the list stores all the Questions
+qlist = [q1, q2, q3, q4, q5, q6]  # the list stores all the Questions
 wrongQ = []
 
 

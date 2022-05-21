@@ -63,9 +63,15 @@
                             </a>
 
                         {% elif results %}
-                        <div id="quiz-results">
-                            {% include 'quiz/result.html' %}
-                        </div>
+                            {% if quiz_result %}
+                                <div id="quiz-results-correct">
+                                    {% include 'quiz/result.html' %}
+                                </div>
+                            {% else %}
+                                <div id="quiz-results-incorrect">
+                                    {% include 'quiz/result.html' %}
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>

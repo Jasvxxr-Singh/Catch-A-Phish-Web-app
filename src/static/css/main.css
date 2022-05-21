@@ -354,11 +354,16 @@ body {
     margin-right: 20px;
 }
 
-#quiz-results {
+#quiz-results-correct {
     padding: 5px;
     border-radius: 5px;
-    background-color: #9eadcb;
+    background-color: #bbfccd;
+}
 
+#quiz-results-incorrect {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ffb8b8;
 }
 
 #inactive-button {

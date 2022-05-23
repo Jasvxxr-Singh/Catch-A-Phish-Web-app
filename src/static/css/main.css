@@ -340,12 +340,19 @@ body {
     margin-bottom: 20%;
 }
 
+#quiz-form {
+    width: 100%;
+}
+
+#quiz-container { 
+    width: 100%;
+}
+
 #sender-address {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;  
 }
-
 
 
 #sender-icon img {

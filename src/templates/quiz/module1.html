@@ -1,6 +1,7 @@
 {% extends 'layout.html' %} {% block content %}
 <div id="quiz">
     <div class="ui middle aligned stackable grid container">
+        <div id="quiz-container">
         <div id="quiz-form">
             <form action="/submitquiz" method="post">
                 <div class="ui fluid card">
@@ -83,6 +84,7 @@
         <div class="quiz-pagination-footer">
             {% include 'quiz/pagination.html' %}
         </div>
+    </div>
     </div>
 
 </div>

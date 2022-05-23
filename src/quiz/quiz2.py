@@ -61,8 +61,33 @@ q7 = Question2(7,
                "All of the above",
                4,
                "")
+q8 = Question2(8,
+               "What is a phishing attack called when it is based on SMS/Text?",
+               "Smishing.",
+               "Spear phishing.",
+               "Text phishing.",
+               "Vishing.",
+               1,
+               "")
+q9 = Question2(9,
+               "What should you do if you accidently click on a phishing link?",
+               "Change your passwords.",
+               "Report the phishing incident.",
+               "Investigate the attack.",
+               "All of the above.",
+               4,
+               "")
+q10 = Question2(10, 
+                "What is the most common kind of phishing attack?",
+                "URL based", 
+                "Smishing", 
+                "Email based.", 
+                "Vishing",
+                3,
+                ""
+                )
 
-qlist = [q1, q2, q3, q4, q5, q6, q7]  # the list stores all the Questions
+qlist = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]  # the list stores all the Questions
 wrongQ = []
 
 

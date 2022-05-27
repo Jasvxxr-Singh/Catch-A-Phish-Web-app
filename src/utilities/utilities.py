@@ -29,7 +29,7 @@ def get_suggestions(user_tags: str):
     list_of_suggestions = []
     for x in user_tags:
         if x == "u": # Urgency
-            message = "Look out for a sense of urgency or time pressure in emails.Often Phishers introduce a sense of time pressure/urgency into their message in order to induce a sense of adrenaline in the receiver, hoping to bait the receiver into acting on impulse."
+            message = "Look out for a sense of urgency or time pressure in emails. Often Phishers introduce a sense of time pressure/urgency into their message in order to induce a sense of adrenaline in the receiver, hoping to bait the receiver into acting on impulse."
             list_of_suggestions.append(message)
         elif x == "p": # Prize scam
             message = "Commonly, Phishers will try bait a receiver into taking part in a scam by discussing their malicious content into a prize scam. Be wary when emails tell you you have won a competition or prize that commonly seems too outrageous to be true."

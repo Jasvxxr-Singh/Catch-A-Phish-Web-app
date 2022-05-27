@@ -1,5 +1,4 @@
-# team19
-# COMPSCI 399
+# Catching A Phish - team19
 
 A serious game to teach people to thwart phishing attacks. 
 Web application by Kayra Yildiz, Jasveer Singh, Jessie Singh, David Wang, Ash Fernandes
@@ -11,6 +10,11 @@ Github: https://github.com/uoa-compsci399-s1-2022/team19
 This repository contains an implementation of an interactive web-based quiz game to teach people how to avoid falling for Phishing attacks.
 It also contains unit tests which can be run through pytest.
 It also contains a simple Flask application which renders content of User objects which are added to our domain model via an SQL database.
+
+**Technologies used**
+This repository contains a web-based game application built upon a Flask framewrok.
+> **Front End technologies**: CSS, HTML, Jinja, Semantic UI design libraries: [https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css]
+> **Back End technologies**: Flask, Python, SQL, Pytest
 
 ## Installation
 
@@ -46,3 +50,11 @@ $ python -m pytest tests
 ````
 
 * Note that for some computers you may need to use python3
+
+
+## Future plans
+Building a web-based game application baseds around the theme of cyber security gives opportunity to explore future plans as it regards a freqently changing and fast-pased topic.
+Cyber crime grows by the day and with ever developing technologies, Phishing has become a prevalent method of cyber attack due to its psychological manipulatory aspects. The incorperation of social manipulation allows Phishing attacks to stand out above other methods of cyber crime as it is more difficult for a machine to recognise and block.
+In this, we plan to add more levels which explore further avenues of Phishing attacks. For example, Level 3 was proposed to cover Smishingf attacks (SMS phishing attacks) which, with the heavy presence of mobile devices now, is an important method of attack that every day users should be aware of and know how to combat.
+Additionally, we aim to further increase personalisation of the game, allowing organisations to have a workplace zone which allows for the connection and integration of corprate groups to test their staff on knowledge relating to cyber security. 
+Lastly, being able to further understand users' process when navigating through the game will help us to build on our educational methods to improve the game. Our user suggestions based on what users frequently get incorrect is a start in understanding this.

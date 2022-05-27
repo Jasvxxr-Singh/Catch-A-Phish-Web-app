@@ -32,9 +32,14 @@ input[type=button]:hover {
 <body>
     <form action="/submitquiz2" method="post">
         <div class="quiz2Content">
+            <div class="scoreQ2" >
+                <p>{{session['user_name'] }}'s score: {{ score }}</p>
+
+            </div>
 
           <br><br>
-                {% if not results %}
+            <!-- {% if not results %} -->
+
 
                             <div id="quiz2Q">
 
@@ -64,14 +69,23 @@ input[type=button]:hover {
                             </a>
                             {{question.getOption4()}}<br>
                             </div>
+            <!-- {% elif results %} -->
 
-                        {% elif results %}
+
             <br>
             <br>
-                        <div id="result2">
+            {% if quiz_result %}
+                        <div id="result2C">
                             {% include 'quiz/result2.html' %}
                         </div>
-                        {% endif %}
+            {% else %}
+                        <div id="result2W">
+                            {% include 'quiz/result2.html' %}
+                        </div>
+            {% endif %}
+                        <!-- {% endif %} -->
+
+
 
 
         <br>

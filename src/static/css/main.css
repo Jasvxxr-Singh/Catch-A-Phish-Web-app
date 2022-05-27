@@ -1,3 +1,277 @@
+BabyYoda
+#7316
+
+DDDDD — Yesterday at 4:14 PM
+Okok
+BabyYoda — Yesterday at 4:14 PM
+all good bro haha
+DDDDD — Yesterday at 4:14 PM
+If he didn’t say anything, I will prob just remind him again
+BabyYoda — Yesterday at 4:14 PM
+thanks bro
+i have 6 people in my team
+4 from china
+hard to communicate
+and they not that active also
+DDDDD — Yesterday at 4:15 PM
+Yeah u know why
+BabyYoda — Yesterday at 4:15 PM
+so i am waiting for them to start on the assignment too
+DDDDD — Yesterday at 4:15 PM
+Cuz they use wechat
+To talk to each other
+BabyYoda — Yesterday at 4:15 PM
+yeah
+we made a discord group
+but apparently most of them talk to each other some other way
+i have 1 indian guy in my team but he also does stuff last min
+DDDDD — Yesterday at 4:16 PM
+Especially with Chinese ppl, they will definitely discuss the assignment together, however with lack of “abilities “ to communicate with other students in English, they will form their own little groups discussing the assignment in Chinese
+BabyYoda — Yesterday at 4:16 PM
+they all doing stuff last min lol
+BabyYoda — Yesterday at 4:16 PM
+oh
+like last tutorial i did most of the work myself too
+and they didnt do much lol
+DDDDD — Yesterday at 4:17 PM
+O
+BabyYoda — Yesterday at 4:17 PM
+idk why i get teams like this
+DDDDD — Yesterday at 4:17 PM
+Bruh
+Maybe tell them to do more work in the gc
+?
+BabyYoda — Yesterday at 4:17 PM
+the chinese girl is good
+she is a bit more active
+but the rest lol
+i did
+just waiting for them now
+DDDDD — Yesterday at 4:17 PM
+Do u have her name tho?
+The Chinese girl
+BabyYoda — Yesterday at 4:17 PM
+i am currently catching up 331 for the test
+DDDDD — Yesterday at 4:17 PM
+Is she called Amy or something?
+BabyYoda — Yesterday at 4:17 PM
+XinLin Li
+idk her English name
+DDDDD — Yesterday at 4:18 PM
+Rifht
+Same
+I am up to week 9s lecture for 331
+BabyYoda — Yesterday at 4:19 PM
+same lol
+DDDDD — Yesterday at 4:19 PM
+Mostly just theory
+BabyYoda — Yesterday at 4:19 PM
+yeah
+i am trying to do better this time
+kinda just wanna pass atm
+lol
+but if i can get B or B+ that would be great
+DDDDD — Yesterday at 4:19 PM
+Yeah
+I mean look at 335
+Hahahha
+BabyYoda — Yesterday at 4:19 PM
+not sure how well we did the project too
+BabyYoda — Yesterday at 4:19 PM
+true
+but 335 test  1 was great
+i got 15/20
+actually 17 or 18
+and that had double pass
+this doesnt
+DDDDD — Yesterday at 4:21 PM
+Yeah
+True
+BabyYoda — Yesterday at 4:21 PM
+we got 15% assignment and 20% test
+DDDDD — Yesterday at 4:21 PM
+When is the test 2 again
+Next Tuesday?
+BabyYoda — Yesterday at 4:21 PM
+even if we get half for both thats a guaranteed pass
+thursday 6pm
+DDDDD — Yesterday at 4:22 PM
+Shiiiit
+Ok I really need to catch it up
+Lol
+BabyYoda — Yesterday at 4:22 PM
+yeah same haha
+DDDDD — Yesterday at 4:23 PM
+also btw
+if u have time
+would u mind pass these two codes into our projects for 399
+{% extends 'layout.html' %} {% block content %}
+
+<html>
+
+<head>
+    <style>
+  input[type=button]{
+  background-color: #F5FFFA;
+  border: none;
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:60px 60px 60px 60px
+
+}
+input[type=button]:hover {
+  background-color: #87CEFA;
+  border: none;
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:60px 60px 60px 60px
+
+}
+</style>
+
+</head>
+<body>
+    <form action="/submitquiz2" method="post">
+        <div class="quiz2Content">
+            <div class="scoreQ2" >
+                <p>{{session['user_name'] }}'s score: {{ score }}</p>
+
+            </div>
+
+          <br><br>
+            <!-- {% if not results %} -->
+
+
+                            <div id="quiz2Q">
+
+                                <p>{{question.getQ_id()}}. {{question.getQuestion()}}</p> <br>
+
+                            </div>
+            <br>
+            <br>
+                            <div id="quizOption">
+                            <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 1) }}">
+                                <input class="submit" type="button" value="1">
+                            </a>
+                            {{question.getOption1()}}
+                            <br>
+
+                            <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 2) }}">
+                                <input class="submit" type="button" value="2">
+                            </a>
+                            {{question.getOption2()}}<br>
+
+                            <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 3) }}">
+                                <input class="submit" type="button" value="3">
+                            </a>
+                            {{question.getOption3()}}<br>
+                            <a href="{{ url_for('submit_bp2.submit2', page_number = current_page, option = 4) }}">
+                                <input class="submit" type="button" value=4>
+                            </a>
+                            {{question.getOption4()}}<br>
+                            </div>
+            <!-- {% elif results %} -->
+
+
+            <br>
+            <br>
+            {% if quiz_result %}
+                        <div id="result2C">
+                            {% include 'quiz/result2.html' %}
+                        </div>
+            {% else %}
+                        <div id="result2W">
+                            {% include 'quiz/result2.html' %}
+                        </div>
+            {% endif %}
+                        <!-- {% endif %} -->
+
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+        <div class="quiz-pagination-footer">
+            {% include 'quiz/pagination2.html' %}
+        </div>
+
+    </form>
+
+
+</body>
+</html>
+
+{% endblock %}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    background-color: #41506b;
+    /* background: radial-gradient(ellipse farthest-corner at center top, #91b0ea 0%, #2e384c 100%); */
+}
+Expand
+message.txt
+11 KB
+BabyYoda — Yesterday at 4:23 PM
+where do you want me to put them?
+DDDDD — Yesterday at 4:24 PM
+like replace the original html css with these two
+i pulled the code from github
+since there r too many errors for merging
+but for somereasons the github push functions cannot work
+BabyYoda — Yesterday at 4:24 PM
+which html and css
+the quiz2 html?
+DDDDD — Yesterday at 4:25 PM
+module2.html
+and for css
+it is just the static/css/main.css
+BabyYoda — Yesterday at 4:25 PM
+so the css i just add to it or replace all?
+DDDDD — Yesterday at 4:26 PM
+just replace it
+BabyYoda — Yesterday at 4:26 PM
+oh 504 lines
+aight
+didnt see it was 504 lines
+DDDDD — Yesterday at 4:26 PM
+Image
+alg
+so it should be looking like this
+u can change the css as well if u want
+like difference color/fonts
+BabyYoda — Yesterday at 4:27 PM
+all good
+DDDDD — Yesterday at 4:27 PM
+i have just added the score on the right
+BabyYoda — Yesterday at 4:27 PM
+i dont wanna mess with it much since we have to present it on tuesday
+DDDDD — Yesterday at 4:27 PM
+and different color of the response section(red when user got wrong, green when user is correct)
+just polish things up a little bit
+alg alg
+BabyYoda — Yesterday at 4:28 PM
+aight
+﻿
 body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: grayscale;
@@ -344,14 +618,14 @@ body {
     width: 100%;
 }
 
-#quiz-container { 
+#quiz-container {
     width: 100%;
 }
 
 #sender-address {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;  
+    justify-content: flex-start;
 }
 
 
@@ -394,7 +668,7 @@ body {
     position: absolute;
     top: 50%;
     left: 80%;
-    
+
     transform: translate(-50%, -50%);
     width: 285px;
     height: 308px;
@@ -570,13 +844,32 @@ input[type=submit] {
     font-weight: bold;
     font-size: 200%;
 }
-#result2{
-    background-color: #DEB887;
+#result2C{
+    background-color: #bbfccd;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     padding: 5px;
     border-radius: 5px;
 
+}
+
+#result2W{
+    background-color: #ffb8b8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.scoreQ2{
+    position: absolute;
+    font-weight: bold;
+    font-size: 150%;
+    left: 1600px;
+    top: 100px;
+    background-color: #FFA07A;
+    border-radius: 25px;
 }
 
 

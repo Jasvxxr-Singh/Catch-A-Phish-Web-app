@@ -36,7 +36,7 @@ q4 = Question2(4,
                "You most likely receive phishing emails on your personal email accounts as well, so it pays to be aware.",
                "All of the above.",
                4,
-               "")
+               "While this is a good answer, the others are just as important. We receive phishing scams on our personal email, texts and also social media accounts on the daily, which is hard for corporations to ")
 q5 = Question2(5,
                "You have been sent a phishing email. What should you do?",
                "Click on the link to claim your million dollars and quit your job.",
@@ -44,7 +44,7 @@ q5 = Question2(5,
                "Let the IT department know that you have been sent a phishing email.",
                "All of the above",
                2,
-               "")
+               "It is best practice to just ignore any phishing emails as the IT department probably deals with numerous phishing emails already.")
 q6 = Question2(6,
                "What are the possible outcomes if you have clicked on a phishing link?",
                "The link could potentially download and install malware which can cause damage to the company.",
@@ -52,7 +52,7 @@ q6 = Question2(6,
                "The attacker sends you the iphone he/she promised.",
                "1 and 2",
                4,
-               "")
+               "The attacker will definitely not give you an iphone.")
 q7 = Question2(7,
                "Which of the following practices should IT employ for an email phishing test?",
                "Include executives and management.",
@@ -60,7 +60,7 @@ q7 = Question2(7,
                "Extract as much user data as possible.",
                "All of the above",
                4,
-               "")
+               "While this is a correct answer, however, we should also create an environment that mimics a phishing attack and use this opportunity to get user data for further studies")
 q8 = Question2(8,
                "What is a phishing attack called when it is based on SMS/Text?",
                "Smishing.",
@@ -70,13 +70,13 @@ q8 = Question2(8,
                1,
                "")
 q9 = Question2(9,
-               "What should you do if you accidently click on a phishing link?",
-               "Change your passwords.",
-               "Report the phishing incident.",
-               "Investigate the attack.",
+               "What are the most common signs of a phishing scams?",
+               "Attractive layout and nice graphics.",
+               "Perfect use of spelling and grammar.",
+               "Sender creates a sense of urgency and tries to panic the recipient.",
                "All of the above.",
-               4,
-               "")
+               3,
+               "Attackers always create a sense of urgency to make the victim panic and make mistakes such as clicking a scam link.")
 q10 = Question2(10, 
                 "What is the most common kind of phishing attack?",
                 "URL based", 
@@ -84,7 +84,7 @@ q10 = Question2(10,
                 "Email based.", 
                 "Vishing",
                 3,
-                ""
+                "About 3.4 billion phishing emails are sent daily"
                 )
 
 qlist = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]  # the list stores all the Questions

@@ -12,7 +12,7 @@ q1 = Question2(1,
                "Phishing emails reach more people if they are worried about the weather.",
                "If people go without power due to a storm or other natural disaster, they will be excited about communication being restored and they will respond to the emails they receive once power is back.",
                2,
-               "")
+               "Attackers often take advantage of their victims when they are in some sort of distraught as people are much likely to make mistakes")
 q2 = Question2(2,
                "What is a phishing attack called when it is designed to look like an email from a user's superior within the organization?",
                "Whale phishing.",
@@ -20,7 +20,7 @@ q2 = Question2(2,
                "Deceptive phishing.",
                "In-session phishing",
                2,
-               "")
+               "Phishing attacks like these come from inside the organisation such as a trusted user.")
 q3 = Question2(3,
                "Which one of the statements is correct?",
                "A spoof is another name for an illegitimate website.",

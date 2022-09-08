@@ -1,4 +1,4 @@
-# Catching A Phish - team19
+# Catching A Phish
 
 A serious game to teach people to thwart phishing attacks. 
 Web application by Kayra Yildiz, Jasveer Singh, Jessie Singh, David Wang, Ash Fernandes

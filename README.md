@@ -24,6 +24,7 @@ This repository contains a web-based game application built upon a Flask framewr
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 $ pip install -r requirements.txt
+$ pip install MarkupSafe==2.0.1
 ```
 
 When using PyCharm for requirements installation, set the virtual environment using 'File'->'Settings' and select your project from the left menu. Select 'Project Interpreter', click on the gearwheel button and select 'Add'. Click the 'Existing environment' radio button to select the virtual environment. 
